@@ -1,0 +1,27 @@
+/* Social icon + decorative kitchen sketch layer */
+.site-footer{position:relative;overflow:hidden}
+.social-icon-row{display:flex!important;gap:10px!important;align-items:center!important;margin:4px 0 22px!important}
+.social-icon{width:42px;height:42px;display:grid!important;place-items:center;border-radius:50%;color:#fff!important;background:linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.14);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 10px 30px rgba(0,0,0,.18);backdrop-filter:blur(14px) saturate(135%);-webkit-backdrop-filter:blur(14px) saturate(135%);transition:transform .25s ease,background .25s ease,border-color .25s ease,color .25s ease}
+.social-icon svg{width:17px;height:17px}
+.social-icon:hover,.social-icon:focus-visible{transform:translateY(-3px);background:linear-gradient(145deg,rgba(239,111,60,.95),rgba(181,83,51,.92));border-color:rgba(255,255,255,.35);color:white!important;outline:none}
+.footer-sketch{position:absolute;pointer-events:none;background-repeat:no-repeat;background-size:contain;opacity:.11;filter:grayscale(.15) brightness(1.5)}
+.footer-sketch-left{width:310px;height:215px;left:-55px;bottom:6px;background-image:url('/aurelia-kitchen-sketch.svg');transform:rotate(-8deg)}
+.footer-sketch-right{width:260px;height:260px;right:-55px;top:15px;background-image:url('/aurelia-plate-sketch.svg');transform:rotate(9deg)}
+.footer-grid,.footer-bottom{position:relative;z-index:1}
+
+/* Add hand-drawn culinary motifs across selected content areas */
+.premium-intro,.premium-wine-gradient,.premium-gallery-preview,.premium-timeline-section,.menu-modern-section,.gallery-main,.premium-contact-section,.premium-hours-preview{position:relative;overflow:hidden}
+.premium-intro>.shell::after,.premium-wine-gradient>.shell::before,.premium-gallery-preview>.shell::after,.premium-timeline-section>.shell::before,.menu-modern-section>.shell::after,.gallery-main>.shell::before,.premium-contact-section>.shell::after,.premium-hours-preview>.shell::before{content:'';position:absolute;pointer-events:none;z-index:0;background-repeat:no-repeat;background-position:center;background-size:contain;opacity:.075}
+.premium-intro>.shell::after,.premium-gallery-preview>.shell::after,.menu-modern-section>.shell::after,.premium-contact-section>.shell::after{background-image:url('/aurelia-kitchen-sketch.svg');width:330px;height:230px;right:-105px;top:32px;transform:rotate(-7deg)}
+.premium-wine-gradient>.shell::before,.premium-timeline-section>.shell::before,.gallery-main>.shell::before,.premium-hours-preview>.shell::before{background-image:url('/aurelia-plate-sketch.svg');width:300px;height:300px;left:-105px;bottom:-65px;transform:rotate(8deg)}
+.premium-intro>.shell>*,.premium-wine-gradient>.shell>*,.premium-gallery-preview>.shell>*,.premium-timeline-section>.shell>*,.menu-modern-section>.shell>*,.gallery-main>.shell>*,.premium-contact-section>.shell>*,.premium-hours-preview>.shell>*{position:relative;z-index:1}
+
+@media(max-width:700px){
+  .social-icon{width:40px;height:40px}
+  .footer-sketch-left{width:210px;height:150px;left:-78px;bottom:40px}
+  .footer-sketch-right{width:190px;height:190px;right:-70px;top:30px}
+  .premium-intro>.shell::after,.premium-gallery-preview>.shell::after,.menu-modern-section>.shell::after,.premium-contact-section>.shell::after{width:190px;height:140px;right:-75px;opacity:.055}
+  .premium-wine-gradient>.shell::before,.premium-timeline-section>.shell::before,.gallery-main>.shell::before,.premium-hours-preview>.shell::before{width:190px;height:190px;left:-80px;opacity:.055}
+}
+
+@media(prefers-reduced-motion:reduce){.social-icon{transition:none}}
