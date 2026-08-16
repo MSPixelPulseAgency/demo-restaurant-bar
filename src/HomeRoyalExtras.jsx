@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, BadgePercent, CalendarDays, Clock3, Crown, Martini, Sparkles, Wine } from 'lucide-react'
 import { images } from './data'
@@ -9,13 +10,24 @@ const offers = [
 ]
 
 const barMoments = [
-  [images.cocktailClose, 'Signature cocktails'],
-  [images.barNight, 'The bar after dark'],
-  [images.winePour, 'Cellar pours'],
-  [images.bar, 'Late-night atmosphere'],
+  { image: images.barNight, eyebrow: 'After dark', title: 'The room changes with the night.', text: 'Low light, warm timber and a bar designed for lingering.' },
+  { image: images.cocktailClose, eyebrow: 'Signature cocktails', title: 'Built with the same care as the kitchen.', text: 'Classics, seasonal signatures and expressive late-night pours.' },
+  { image: images.winePour, eyebrow: 'The cellar', title: 'A bottle for the table. A glass for the moment.', text: 'A rotating selection of sparkling, white and red wines.' },
+  { image: images.bar, eyebrow: 'Late-night atmosphere', title: 'Dinner can become one more round.', text: 'A relaxed second act with bar bites, music and polished hospitality.' },
 ]
 
 export default function HomeRoyalExtras() {
+  const [activeMoment, setActiveMoment] = useState(0)
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveMoment((current) => (current + 1) % barMoments.length)
+    }, 4800)
+    return () => window.clearInterval(timer)
+  }, [])
+
+  const moment = barMoments[activeMoment]
+
   return (
     <>
       <section className="royal-offers-section">
@@ -45,7 +57,7 @@ export default function HomeRoyalExtras() {
         </div>
       </section>
 
-      <section className="royal-bar-section royal-bar-clean">
+      <section className="royal-bar-section royal-bar-single">
         <div className="royal-bar-video" aria-hidden="true">
           <video autoPlay muted loop playsInline preload="metadata" poster={images.bar}>
             <source src="https://videos.pexels.com/video-files/5495781/5495781-hd_1920_1080_25fps.mp4" type="video/mp4" />
@@ -53,32 +65,47 @@ export default function HomeRoyalExtras() {
           <div className="royal-bar-video-shade" />
         </div>
 
-        <div className="shell royal-bar-clean-grid">
-          <div className="royal-bar-copy royal-bar-copy-clean">
+        <div className="shell royal-bar-single-inner">
+          <div className="royal-bar-copy royal-bar-single-copy">
             <div className="royal-bar-chip"><Sparkles size={14}/> After dinner, stay awhile</div>
             <p className="eyebrow light">Aurelia Bar</p>
             <h2>Dark glass, warm light, unforgettable pours.</h2>
             <p>The bar is designed as the second act of the evening — cocktails, cellar pours, bar bites and a room that becomes richer after dark.</p>
-            <div className="royal-bar-meta"><span><Clock3 size={16}/> Late-night service</span><span><Wine size={16}/> Curated cellar</span><span><Martini size={16}/> Signature cocktails</span></div>
+            <div className="royal-bar-meta">
+              <span><Clock3 size={16}/> Late-night service</span>
+              <span><Wine size={16}/> Curated cellar</span>
+              <span><Martini size={16}/> Signature cocktails</span>
+            </div>
             <Link to="/menu" className="button button-gold">Explore Cocktails</Link>
           </div>
 
-          <figure className="royal-bar-feature-media">
-            <img src={images.barNight} alt="Aurelia bar at night" loading="lazy" decoding="async" />
-            <figcaption className="royal-bar-feature-caption">
-              <span>After dark</span>
-              <strong>The room changes with the night.</strong>
-            </figcaption>
-          </figure>
-        </div>
-
-        <div className="shell royal-bar-photo-strip" aria-label="Aurelia bar moments">
-          {barMoments.map(([image, label]) => (
-            <figure className="royal-bar-photo interactive-card" key={label}>
-              <img src={image} alt={label} loading="lazy" decoding="async" />
-              <figcaption>{label}</figcaption>
+          <div className="royal-bar-carousel" aria-label="Aurelia bar highlights">
+            <figure className="royal-bar-slide" key={activeMoment}>
+              <img src={moment.image} alt={moment.eyebrow} loading="eager" decoding="async" />
+              <div className="royal-bar-slide-shade" />
+              <figcaption className="royal-bar-slide-caption">
+                <span>{moment.eyebrow}</span>
+                <strong>{moment.title}</strong>
+                <p>{moment.text}</p>
+              </figcaption>
             </figure>
-          ))}
+
+            <div className="royal-bar-carousel-nav" aria-label="Choose bar image">
+              {barMoments.map((item, index) => (
+                <button
+                  type="button"
+                  key={item.eyebrow}
+                  className={index === activeMoment ? 'active' : ''}
+                  onClick={() => setActiveMoment(index)}
+                  aria-label={`Show ${item.eyebrow}`}
+                  aria-current={index === activeMoment ? 'true' : undefined}
+                >
+                  <span>{String(index + 1).padStart(2, '0')}</span>
+                  <small>{item.eyebrow}</small>
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
     </>
