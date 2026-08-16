@@ -43,6 +43,7 @@ import './mobile-home-meta-row-final.css'
 import './final-release-polish.css'
 import './home-hero-header-final.css'
 import './home-dish-border-cleanup.css'
+import './home-hero-minimal-final.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
