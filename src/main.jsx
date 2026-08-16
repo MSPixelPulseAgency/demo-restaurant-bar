@@ -12,6 +12,7 @@ import './liquid-glass.css'
 import './fresco-editorial.css'
 import './footer-social-sketches.css'
 import './about-wow.css'
+import './final-restaurant-polish.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
