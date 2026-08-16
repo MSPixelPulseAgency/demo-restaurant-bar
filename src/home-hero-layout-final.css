@@ -12,16 +12,13 @@
   background-position: center 48% !important;
 }
 
-/* Keep the dramatic black opacity layer, but make it directional so the text owns the left side. */
 .page-home .premium-home-shade {
   background:
     linear-gradient(90deg, rgba(5, 4, 3, .90) 0%, rgba(5, 4, 3, .80) 28%, rgba(5, 4, 3, .54) 54%, rgba(5, 4, 3, .28) 76%, rgba(5, 4, 3, .40) 100%),
     linear-gradient(180deg, rgba(4, 3, 2, .24) 0%, rgba(4, 3, 2, .10) 36%, rgba(4, 3, 2, .54) 76%, rgba(4, 3, 2, .86) 100%) !important;
 }
 
-.page-home .premium-home-orb {
-  opacity: .18 !important;
-}
+.page-home .premium-home-orb { opacity: .18 !important; }
 
 .page-home .premium-home-content {
   width: 100% !important;
@@ -105,48 +102,17 @@
 }
 
 @media (min-width: 1025px) {
-  .page-home .premium-home-hero {
-    min-height: calc(100svh - 70px) !important;
-    background-position: center 48% !important;
-  }
-
-  .page-home .premium-home-content {
-    min-height: calc(100svh - 70px) !important;
-    padding: 64px 0 118px !important;
-  }
-
-  /* Desktop kicker should feel like a refined label, not a second headline. */
-  .page-home .premium-home-kicker {
-    margin-bottom: 24px !important;
-    padding: 8px 16px !important;
-    font-size: clamp(.9rem, 1.25vw, 1.12rem) !important;
-    line-height: 1 !important;
-    border-radius: 999px !important;
-  }
-
-  .page-home .premium-home-meta {
-    bottom: 26px !important;
-  }
+  .page-home .premium-home-hero { min-height: calc(100svh - 70px) !important; background-position: center 48% !important; }
+  .page-home .premium-home-content { min-height: calc(100svh - 70px) !important; padding: 64px 0 118px !important; }
+  .page-home .premium-home-kicker { margin-bottom: 24px !important; padding: 8px 16px !important; font-size: clamp(.9rem, 1.25vw, 1.12rem) !important; line-height: 1 !important; border-radius: 999px !important; }
+  .page-home .premium-home-meta { bottom: 26px !important; }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  .page-home .premium-home-hero {
-    min-height: 760px !important;
-    background-position: 55% center !important;
-  }
-
-  .page-home .premium-home-content {
-    padding-top: 84px !important;
-    padding-bottom: 126px !important;
-  }
-
-  .page-home .premium-home-content > h1 {
-    font-size: clamp(4.2rem, 8vw, 6.3rem) !important;
-  }
-
-  .page-home .premium-home-tagline {
-    font-size: clamp(3.1rem, 7vw, 5.1rem) !important;
-  }
+  .page-home .premium-home-hero { min-height: 760px !important; background-position: 55% center !important; }
+  .page-home .premium-home-content { padding-top: 84px !important; padding-bottom: 126px !important; }
+  .page-home .premium-home-content > h1 { font-size: clamp(4.2rem, 8vw, 6.3rem) !important; }
+  .page-home .premium-home-tagline { font-size: clamp(3.1rem, 7vw, 5.1rem) !important; }
 }
 
 @media (max-width: 767px) {
@@ -162,92 +128,41 @@
       linear-gradient(90deg, rgba(5,4,3,.78) 0%, rgba(5,4,3,.46) 78%, rgba(5,4,3,.58) 100%) !important;
   }
 
-  /* Give the mobile first impression clear breathing room below the header and before the next section. */
+  /* Explicit header clearance: the first glass label must never visually touch or slide under the mobile header. */
   .page-home .premium-home-content {
     width: 100% !important;
     max-width: none !important;
     min-height: 0 !important;
-    padding: clamp(68px, 14vw, 84px) clamp(22px, 6vw, 30px) clamp(54px, 11vw, 72px) !important;
+    padding: clamp(96px, 20vw, 118px) clamp(22px, 6vw, 30px) clamp(54px, 11vw, 72px) !important;
     align-items: flex-start !important;
     justify-content: flex-start !important;
     text-align: left !important;
   }
 
   .page-home .premium-home-kicker {
-    margin-bottom: 26px !important;
+    margin-top: 0 !important;
+    margin-bottom: 28px !important;
     padding: 10px 15px !important;
     font-size: clamp(.84rem, 3.45vw, .98rem) !important;
     line-height: 1.1 !important;
   }
 
-  .page-home .premium-home-content > h1 {
-    max-width: 100% !important;
-    margin-bottom: 20px !important;
-    font-size: clamp(4rem, 16vw, 5.4rem) !important;
-    line-height: .9 !important;
-    text-align: left !important;
-  }
-
-  .page-home .premium-home-tagline {
-    max-width: 92% !important;
-    margin-bottom: 22px !important;
-    font-size: clamp(3rem, 13vw, 4.65rem) !important;
-    line-height: .91 !important;
-    text-align: left !important;
-  }
-
-  .page-home .premium-home-description {
-    max-width: 94% !important;
-    margin-bottom: 28px !important;
-    font-size: clamp(1rem, 4.35vw, 1.12rem) !important;
-    line-height: 1.62 !important;
-    text-align: left !important;
-  }
-
-  .page-home .premium-home-actions {
-    width: 100% !important;
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 11px !important;
-  }
-
-  .page-home .premium-home-actions .button {
-    width: 100% !important;
-    min-height: 56px !important;
-    margin: 0 !important;
-  }
-
-  /* Keep the existing three-item row visible immediately after the CTA block, but give it clear separation from both CTA and next section. */
-  .page-home .premium-home-meta {
-    position: relative !important;
-    inset: auto !important;
-    margin-top: 30px !important;
-    margin-bottom: 26px !important;
-  }
+  .page-home .premium-home-content > h1 { max-width: 100% !important; margin-bottom: 20px !important; font-size: clamp(4rem, 16vw, 5.4rem) !important; line-height: .9 !important; text-align: left !important; }
+  .page-home .premium-home-tagline { max-width: 92% !important; margin-bottom: 22px !important; font-size: clamp(3rem, 13vw, 4.65rem) !important; line-height: .91 !important; text-align: left !important; }
+  .page-home .premium-home-description { max-width: 94% !important; margin-bottom: 28px !important; font-size: clamp(1rem, 4.35vw, 1.12rem) !important; line-height: 1.62 !important; text-align: left !important; }
+  .page-home .premium-home-actions { width: 100% !important; display: grid !important; grid-template-columns: 1fr !important; gap: 11px !important; }
+  .page-home .premium-home-actions .button { width: 100% !important; min-height: 56px !important; margin: 0 !important; }
+  .page-home .premium-home-meta { position: relative !important; inset: auto !important; margin-top: 30px !important; margin-bottom: 26px !important; }
 }
 
 @media (max-width: 390px) {
   .page-home .premium-home-content {
     padding-inline: 20px !important;
-    padding-top: 60px !important;
+    padding-top: 92px !important;
     padding-bottom: 52px !important;
   }
-
-  .page-home .premium-home-content > h1 {
-    font-size: clamp(3.7rem, 16vw, 4.7rem) !important;
-  }
-
-  .page-home .premium-home-tagline {
-    max-width: 100% !important;
-    font-size: clamp(2.7rem, 12.5vw, 4rem) !important;
-  }
-
-  .page-home .premium-home-description {
-    max-width: 100% !important;
-  }
-
-  .page-home .premium-home-meta {
-    margin-top: 26px !important;
-    margin-bottom: 24px !important;
-  }
+  .page-home .premium-home-content > h1 { font-size: clamp(3.7rem, 16vw, 4.7rem) !important; }
+  .page-home .premium-home-tagline { max-width: 100% !important; font-size: clamp(2.7rem, 12.5vw, 4rem) !important; }
+  .page-home .premium-home-description { max-width: 100% !important; }
+  .page-home .premium-home-meta { margin-top: 26px !important; margin-bottom: 24px !important; }
 }
