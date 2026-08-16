@@ -40,6 +40,7 @@ import './mobile-device-universal.css'
 import './mobile-home-meta-border-fix.css'
 import './mobile-home-first-impression-final.css'
 import './mobile-home-meta-row-final.css'
+import './final-release-polish.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
