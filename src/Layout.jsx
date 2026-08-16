@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
-import { Menu, X, Phone, MapPin, CalendarDays } from 'lucide-react'
+import { X, Phone, MapPin, CalendarDays, ChevronUp } from 'lucide-react'
 import { FaFacebookF, FaInstagram, FaPinterestP, FaYelp } from 'react-icons/fa'
 import { nav, site } from './data'
 import CinematicFilm from './CinematicFilm'
@@ -43,7 +43,9 @@ function Header() {
           {nav.map(([label, path]) => <NavLink key={path} to={path} className={({ isActive }) => isActive ? 'active' : ''}>{label}</NavLink>)}
         </nav>
         <Link className="button button-gold header-cta" to="/booking">Book a Table</Link>
-        <button className="menu-toggle" type="button" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen((value) => !value)}>{open ? <X size={24}/> : <Menu size={25}/>}</button>
+        <button className="menu-toggle" type="button" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen((value) => !value)}>
+          {open ? <X size={23}/> : <span className="hamburger-lines" aria-hidden="true"><span/><span/><span/></span>}
+        </button>
       </div>
 
       <button className={`mobile-menu-backdrop ${open ? 'open' : ''}`} type="button" aria-label="Close navigation" tabIndex={open ? 0 : -1} onClick={() => setOpen(false)} />
@@ -91,9 +93,31 @@ function MobileActions() {
   return <div className="mobile-actions" aria-label="Quick actions"><a href={`tel:${site.phone.replace(/[^0-9+]/g, '')}`}><Phone size={18}/><span>Call</span></a><Link to="/contact"><MapPin size={18}/><span>Directions</span></Link><Link to="/booking"><CalendarDays size={18}/><span>Reserve</span></Link></div>
 }
 
+function ScrollToTop() {
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 520)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  return (
+    <button
+      type="button"
+      className={`scroll-top ${visible ? 'is-visible' : ''}`}
+      aria-label="Scroll to top"
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+    >
+      <ChevronUp size={19} strokeWidth={2.2}/>
+    </button>
+  )
+}
+
 export default function Layout() {
   const location = useLocation()
   useEffect(() => { window.scrollTo({ top: 0, left: 0, behavior: 'auto' }) }, [location.pathname])
   const isHome = location.pathname === '/'
-  return <><ScrollEffects/><Header/><main className={isHome ? 'page-main page-home' : 'page-main'}><Outlet/>{isHome && <><CinematicFilm/><HomeRoyalExtras/></>}</main><Footer/><MobileActions/></>
+  return <><ScrollEffects/><Header/><main className={isHome ? 'page-main page-home' : 'page-main'}><Outlet/>{isHome && <><CinematicFilm/><HomeRoyalExtras/></>}</main><Footer/><ScrollToTop/><MobileActions/></>
 }
