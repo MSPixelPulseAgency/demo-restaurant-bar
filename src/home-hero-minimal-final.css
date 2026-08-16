@@ -1,9 +1,10 @@
 /* Final Home hero refinement.
-   All devices: use the same quieter premium fine-dining image with device-specific focal positioning.
+   All devices: use a dark restaurant/bar image with device-specific focal positioning.
+   Keep the existing black opacity treatment for strong text contrast.
    Desktop/tablet: also remove excess visual space below the header. */
 
 .page-home .premium-home-hero {
-  --home-image: url('https://images.unsplash.com/photo-1760662435569-84a4fb1fa407?auto=format&fit=crop&w=2400&q=88') !important;
+  --home-image: url('https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=2400&q=88') !important;
   background-image: var(--home-image) !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
@@ -11,15 +12,15 @@
 
 @media (min-width: 768px) {
   .page-home .premium-home-hero {
-    background-position: center 58% !important;
+    background-position: center 52% !important;
     margin-top: 0 !important;
     padding-top: 0 !important;
   }
 
   .page-home .premium-home-shade {
     background:
-      linear-gradient(90deg, rgba(6, 4, 3, .78) 0%, rgba(6, 4, 3, .60) 42%, rgba(6, 4, 3, .33) 72%, rgba(6, 4, 3, .48) 100%),
-      linear-gradient(180deg, rgba(5, 4, 3, .22) 0%, rgba(5, 4, 3, .12) 34%, rgba(5, 4, 3, .46) 73%, rgba(5, 4, 3, .82) 100%) !important;
+      linear-gradient(90deg, rgba(4, 3, 2, .82) 0%, rgba(4, 3, 2, .67) 40%, rgba(4, 3, 2, .42) 72%, rgba(4, 3, 2, .58) 100%),
+      linear-gradient(180deg, rgba(4, 3, 2, .34) 0%, rgba(4, 3, 2, .20) 34%, rgba(4, 3, 2, .52) 73%, rgba(4, 3, 2, .88) 100%) !important;
   }
 
   .page-home .premium-home-content {
@@ -29,21 +30,20 @@
 }
 
 @media (max-width: 767px) {
-  /* Portrait phones need a different crop of the same hero rather than the old mobile image. */
   .page-home .premium-home-hero {
-    background-position: 53% center !important;
+    background-position: 58% center !important;
   }
 
   .page-home .premium-home-shade {
     background:
-      linear-gradient(180deg, rgba(5, 4, 3, .48) 0%, rgba(5, 4, 3, .28) 24%, rgba(5, 4, 3, .46) 58%, rgba(5, 4, 3, .86) 100%),
-      radial-gradient(circle at 50% 40%, rgba(10, 7, 5, .05), rgba(5, 4, 3, .52) 78%) !important;
+      linear-gradient(180deg, rgba(4, 3, 2, .58) 0%, rgba(4, 3, 2, .38) 24%, rgba(4, 3, 2, .56) 58%, rgba(4, 3, 2, .90) 100%),
+      radial-gradient(circle at 50% 40%, rgba(35, 20, 10, .05), rgba(4, 3, 2, .58) 78%) !important;
   }
 }
 
 @media (max-width: 430px) {
   .page-home .premium-home-hero {
-    background-position: 55% center !important;
+    background-position: 60% center !important;
   }
 }
 
