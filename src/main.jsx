@@ -5,6 +5,7 @@ import App from './App'
 import './styles.css'
 import './enhancements.css'
 import './brand.css'
+import './restaurant-polish.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
