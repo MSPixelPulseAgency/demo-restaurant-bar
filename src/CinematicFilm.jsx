@@ -27,9 +27,7 @@ const marqueeItems = ['DINING', 'COCKTAILS', 'PRIVATE EVENTS', 'CATERING', 'LATE
 function MarqueeGroup() {
   return (
     <div className="cinematic-marquee-group">
-      {marqueeItems.map((item) => (
-        <span key={item}>{item}<i>•</i></span>
-      ))}
+      {marqueeItems.map((item) => <span key={item}>{item}<i>•</i></span>)}
     </div>
   )
 }
@@ -59,7 +57,6 @@ export default function CinematicFilm() {
 
         <div className="cinematic-marquee" aria-hidden="true">
           <div className="cinematic-marquee-track">
-            <MarqueeGroup />
             <MarqueeGroup />
             <MarqueeGroup />
             <MarqueeGroup />
