@@ -9,6 +9,7 @@ import './restaurant-polish.css'
 import './gallery-enhanced.css'
 import './premium-pages.css'
 import './liquid-glass.css'
+import './fresco-editorial.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
