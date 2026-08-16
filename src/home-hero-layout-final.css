@@ -42,29 +42,32 @@
   backdrop-filter: blur(16px) saturate(135%) !important;
 }
 
+/* Use the same script language as the About page's "Our story" label. */
 .page-home .premium-home-content > h1 {
+  width: auto !important;
+  max-width: 760px !important;
+  margin: 0 0 18px !important;
+  text-align: left !important;
+  color: var(--aurelia-coral, #ef6f3c) !important;
+  font-family: var(--aurelia-script, 'Allura', cursive) !important;
+  font-size: clamp(3.4rem, 5.6vw, 5.8rem) !important;
+  font-weight: 400 !important;
+  line-height: .95 !important;
+  letter-spacing: 0 !important;
+  text-shadow: 0 8px 34px rgba(0,0,0,.34) !important;
+}
+
+.page-home .premium-home-tagline {
   width: auto !important;
   max-width: 760px !important;
   margin: 0 0 22px !important;
   text-align: left !important;
   color: #fff !important;
-  font-family: var(--aurelia-serif, Georgia, serif) !important;
-  font-size: clamp(4.4rem, 7.2vw, 7.7rem) !important;
-  line-height: .88 !important;
-  letter-spacing: -.045em !important;
-  text-shadow: 0 8px 38px rgba(0,0,0,.38) !important;
-}
-
-.page-home .premium-home-tagline {
-  width: auto !important;
-  max-width: 790px !important;
-  margin: 0 0 24px !important;
-  text-align: left !important;
-  color: #fff !important;
   font-family: var(--aurelia-display, sans-serif) !important;
-  font-size: clamp(3rem, 5.3vw, 5.7rem) !important;
-  line-height: .92 !important;
-  letter-spacing: -.045em !important;
+  font-size: clamp(2.4rem, 4.35vw, 4.7rem) !important;
+  font-weight: 700 !important;
+  line-height: .96 !important;
+  letter-spacing: -.035em !important;
   text-wrap: balance !important;
   text-shadow: 0 8px 34px rgba(0,0,0,.34) !important;
 }
@@ -104,15 +107,15 @@
 @media (min-width: 1025px) {
   .page-home .premium-home-hero { min-height: calc(100svh - 70px) !important; background-position: center 48% !important; }
   .page-home .premium-home-content { min-height: calc(100svh - 70px) !important; padding: 64px 0 118px !important; }
-  .page-home .premium-home-kicker { margin-bottom: 24px !important; padding: 8px 16px !important; font-size: clamp(.9rem, 1.25vw, 1.12rem) !important; line-height: 1 !important; border-radius: 999px !important; }
+  .page-home .premium-home-kicker { margin-bottom: 22px !important; padding: 8px 16px !important; font-size: clamp(.9rem, 1.25vw, 1.12rem) !important; line-height: 1 !important; border-radius: 999px !important; }
   .page-home .premium-home-meta { bottom: 26px !important; }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .page-home .premium-home-hero { min-height: 760px !important; background-position: 55% center !important; }
   .page-home .premium-home-content { padding-top: 84px !important; padding-bottom: 126px !important; }
-  .page-home .premium-home-content > h1 { font-size: clamp(4.2rem, 8vw, 6.3rem) !important; }
-  .page-home .premium-home-tagline { font-size: clamp(3.1rem, 7vw, 5.1rem) !important; }
+  .page-home .premium-home-content > h1 { font-size: clamp(3.4rem, 7vw, 5rem) !important; }
+  .page-home .premium-home-tagline { font-size: clamp(2.5rem, 5.8vw, 4rem) !important; font-weight: 700 !important; }
 }
 
 @media (max-width: 767px) {
@@ -128,7 +131,6 @@
       linear-gradient(90deg, rgba(5,4,3,.78) 0%, rgba(5,4,3,.46) 78%, rgba(5,4,3,.58) 100%) !important;
   }
 
-  /* Explicit header clearance: the first glass label must never visually touch or slide under the mobile header. */
   .page-home .premium-home-content {
     width: 100% !important;
     max-width: none !important;
@@ -141,14 +143,29 @@
 
   .page-home .premium-home-kicker {
     margin-top: 0 !important;
-    margin-bottom: 28px !important;
+    margin-bottom: 24px !important;
     padding: 10px 15px !important;
-    font-size: clamp(.84rem, 3.45vw, .98rem) !important;
+    font-size: clamp(.82rem, 3.2vw, .94rem) !important;
     line-height: 1.1 !important;
   }
 
-  .page-home .premium-home-content > h1 { max-width: 100% !important; margin-bottom: 20px !important; font-size: clamp(4rem, 16vw, 5.4rem) !important; line-height: .9 !important; text-align: left !important; }
-  .page-home .premium-home-tagline { max-width: 92% !important; margin-bottom: 22px !important; font-size: clamp(3rem, 13vw, 4.65rem) !important; line-height: .91 !important; text-align: left !important; }
+  .page-home .premium-home-content > h1 {
+    max-width: 100% !important;
+    margin-bottom: 16px !important;
+    font-size: clamp(3.15rem, 13vw, 4.15rem) !important;
+    line-height: .96 !important;
+    text-align: left !important;
+  }
+
+  .page-home .premium-home-tagline {
+    max-width: 92% !important;
+    margin-bottom: 20px !important;
+    font-size: clamp(2.45rem, 10.5vw, 3.55rem) !important;
+    font-weight: 700 !important;
+    line-height: .95 !important;
+    text-align: left !important;
+  }
+
   .page-home .premium-home-description { max-width: 94% !important; margin-bottom: 28px !important; font-size: clamp(1rem, 4.35vw, 1.12rem) !important; line-height: 1.62 !important; text-align: left !important; }
   .page-home .premium-home-actions { width: 100% !important; display: grid !important; grid-template-columns: 1fr !important; gap: 11px !important; }
   .page-home .premium-home-actions .button { width: 100% !important; min-height: 56px !important; margin: 0 !important; }
@@ -161,8 +178,8 @@
     padding-top: 92px !important;
     padding-bottom: 52px !important;
   }
-  .page-home .premium-home-content > h1 { font-size: clamp(3.7rem, 16vw, 4.7rem) !important; }
-  .page-home .premium-home-tagline { max-width: 100% !important; font-size: clamp(2.7rem, 12.5vw, 4rem) !important; }
+  .page-home .premium-home-content > h1 { font-size: clamp(2.95rem, 12.5vw, 3.8rem) !important; }
+  .page-home .premium-home-tagline { max-width: 100% !important; font-size: clamp(2.25rem, 10vw, 3.2rem) !important; font-weight: 700 !important; }
   .page-home .premium-home-description { max-width: 100% !important; }
   .page-home .premium-home-meta { margin-top: 26px !important; margin-bottom: 24px !important; }
 }
