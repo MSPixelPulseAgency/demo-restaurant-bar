@@ -1,0 +1,384 @@
+/* Aurelia mobile HOME final pass
+   Loaded last. Home-only/mobile-only corrections from real iPhone QA screenshots. */
+
+@media (max-width: 767px) {
+  /* Header readability */
+  .site-header .brand,
+  .site-header .brand-copy,
+  .site-header .brand-copy strong,
+  .site-header .brand-copy small {
+    color:#fff !important;
+  }
+  .site-header .brand-copy strong {
+    text-shadow:0 1px 12px rgba(0,0,0,.35) !important;
+  }
+
+  /* ---------- HOME HERO: one clean reading column ---------- */
+  .page-home .premium-home-hero {
+    min-height:auto !important;
+    height:auto !important;
+    padding:0 !important;
+    display:block !important;
+    background-position:57% center !important;
+  }
+  .page-home .premium-home-content {
+    width:calc(100% - 40px) !important;
+    min-height:calc(100svh - 70px) !important;
+    padding:74px 0 32px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:center !important;
+    align-items:flex-start !important;
+  }
+  .page-home .premium-home-kicker {
+    max-width:100% !important;
+    margin:0 0 22px !important;
+    padding:10px 15px !important;
+    font-size:.9rem !important;
+    line-height:1.15 !important;
+    border-radius:999px !important;
+  }
+  .page-home .premium-home-content>h1 {
+    margin:0 0 14px !important;
+    font-size:clamp(3.35rem,15vw,4.6rem) !important;
+    line-height:.9 !important;
+    letter-spacing:-.04em !important;
+  }
+  .page-home .premium-home-tagline {
+    max-width:9.5ch !important;
+    margin:0 0 18px !important;
+    font-size:clamp(2.4rem,10.8vw,3.35rem) !important;
+    line-height:.94 !important;
+    letter-spacing:-.035em !important;
+  }
+  .page-home .premium-home-description {
+    max-width:31ch !important;
+    margin:0 !important;
+    font-size:.98rem !important;
+    line-height:1.55 !important;
+  }
+  .page-home .premium-home-actions {
+    width:100% !important;
+    margin:25px 0 0 !important;
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:9px !important;
+  }
+  .page-home .premium-home-actions .button {
+    width:100% !important;
+    min-height:52px !important;
+  }
+  .page-home .premium-home-meta {
+    position:relative !important;
+    inset:auto !important;
+    transform:none !important;
+    width:calc(100% - 40px) !important;
+    margin:0 auto 22px !important;
+    padding:0 !important;
+    display:grid !important;
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    overflow:hidden !important;
+    border-radius:18px !important;
+  }
+  .page-home .premium-home-meta span {
+    min-width:0 !important;
+    min-height:66px !important;
+    padding:10px 5px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:5px !important;
+    text-align:center !important;
+    white-space:normal !important;
+    font-size:.54rem !important;
+    line-height:1.25 !important;
+    letter-spacing:.07em !important;
+    border-right:1px solid rgba(255,255,255,.08) !important;
+  }
+  .page-home .premium-home-meta span:last-child { border-right:0 !important; }
+
+  /* ---------- HOME INTRO / CHEF COLLAGE ---------- */
+  .page-home .premium-intro .premium-split,
+  .page-home .premium-intro .premium-split-wide {
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:34px !important;
+  }
+  .page-home .premium-collage {
+    min-height:0 !important;
+    padding:0 !important;
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:10px !important;
+  }
+  .page-home .premium-collage-main,
+  .page-home .premium-collage-float {
+    position:relative !important;
+    inset:auto !important;
+    width:100% !important;
+    height:auto !important;
+    object-fit:cover !important;
+    border:0 !important;
+  }
+  .page-home .premium-collage-main {
+    aspect-ratio:4/5 !important;
+    border-radius:28px 28px 8px 28px !important;
+  }
+  .page-home .premium-collage-float {
+    aspect-ratio:16/10 !important;
+    border-radius:8px 24px 24px 24px !important;
+  }
+  .page-home .premium-collage-note {
+    position:static !important;
+    justify-self:start !important;
+    margin:2px 0 0 !important;
+  }
+
+  /* ---------- FEATURED DISHES: remove broken split cards ---------- */
+  .page-home .premium-dark-section .premium-heading-row {
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:20px !important;
+  }
+  .page-home .premium-dark-section .premium-heading-row .button {
+    width:100% !important;
+  }
+  .page-home .premium-dish-grid {
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:16px !important;
+  }
+  .page-home .premium-dish-card {
+    width:100% !important;
+    display:block !important;
+    overflow:hidden !important;
+    border-radius:20px !important;
+  }
+  .page-home .premium-dish-media {
+    position:relative !important;
+    width:100% !important;
+    height:auto !important;
+    aspect-ratio:16/10 !important;
+    overflow:hidden !important;
+  }
+  .page-home .premium-dish-media img {
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+  }
+  .page-home .premium-dish-media>span {
+    position:absolute !important;
+    top:14px !important;
+    right:14px !important;
+    left:auto !important;
+    bottom:auto !important;
+    min-width:56px !important;
+    height:56px !important;
+    display:grid !important;
+    place-items:center !important;
+    border-radius:50% !important;
+    background:#df7048 !important;
+    color:#fff !important;
+    font-weight:800 !important;
+  }
+  .page-home .premium-dish-copy {
+    position:static !important;
+    width:100% !important;
+    min-height:0 !important;
+    padding:18px 18px 20px !important;
+    background:#17120f !important;
+  }
+  .page-home .premium-dish-copy h3 {
+    margin:0 0 7px !important;
+    font-size:1.45rem !important;
+    line-height:1.1 !important;
+  }
+  .page-home .premium-dish-copy p {
+    margin:0 !important;
+    font-size:.86rem !important;
+    line-height:1.5 !important;
+  }
+
+  /* ---------- DINING / BAR EXPERIENCE ---------- */
+  .page-home .premium-dual-experience {
+    display:grid !important;
+    grid-template-columns:1fr !important;
+  }
+  .page-home .premium-dual-experience article {
+    min-height:500px !important;
+  }
+  .page-home .premium-dual-copy {
+    width:100% !important;
+    max-width:none !important;
+    padding:34px 24px 94px !important;
+  }
+  .page-home .premium-dual-copy h2 {
+    max-width:10ch !important;
+    margin:0 0 20px !important;
+    font-size:clamp(2.5rem,11vw,3.35rem) !important;
+    line-height:.96 !important;
+  }
+
+  /* ---------- CINEMATIC SECTION ---------- */
+  .page-home .cinematic-film-full {
+    min-height:auto !important;
+    height:auto !important;
+    padding:0 !important;
+  }
+  .page-home .cinematic-film-content-centered {
+    min-height:calc(100svh - 70px) !important;
+    width:calc(100% - 40px) !important;
+    padding:70px 0 92px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:center !important;
+    align-items:center !important;
+    text-align:center !important;
+  }
+  .page-home .cinematic-film-kicker {
+    justify-content:center !important;
+    text-align:center !important;
+    font-size:.68rem !important;
+    letter-spacing:.14em !important;
+  }
+  .page-home .cinematic-film-content h2 {
+    max-width:9ch !important;
+    margin:24px auto 22px !important;
+    font-size:clamp(3rem,13vw,4.15rem) !important;
+    line-height:.94 !important;
+    text-align:center !important;
+  }
+  .page-home .cinematic-film-content p {
+    max-width:31ch !important;
+    margin:0 auto !important;
+    font-size:.95rem !important;
+    line-height:1.6 !important;
+    text-align:center !important;
+  }
+  .page-home .cinematic-film-actions {
+    width:100% !important;
+    margin-top:28px !important;
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:10px !important;
+  }
+  .page-home .cinematic-film-actions .button,
+  .page-home .cinematic-text-link {
+    width:100% !important;
+    min-height:52px !important;
+    justify-content:center !important;
+  }
+  .page-home .cinematic-marquee-standalone {
+    width:100% !important;
+    overflow:hidden !important;
+  }
+  .page-home .cinematic-marquee-track {
+    min-width:max-content !important;
+    will-change:transform !important;
+  }
+
+  /* ---------- BAR SHOWCASE / ROYAL EXTRAS ---------- */
+  .page-home .bar-showcase-grid,
+  .page-home .royal-bar-single-inner {
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:28px !important;
+  }
+  .page-home .bar-showcase-copy,
+  .page-home .royal-bar-single-copy {
+    max-width:none !important;
+    text-align:left !important;
+  }
+  .page-home .bar-cocktail-deck {
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:12px !important;
+  }
+  .page-home .bar-cocktail-card {
+    position:relative !important;
+    inset:auto !important;
+    transform:none !important;
+    width:100% !important;
+    min-height:330px !important;
+  }
+  .page-home .royal-offer-grid {
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:12px !important;
+  }
+  .page-home .royal-offer-actions {
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:16px !important;
+  }
+  .page-home .royal-offer-actions .button { width:100% !important; }
+  .page-home .royal-bar-carousel { width:100% !important; min-width:0 !important; }
+  .page-home .royal-bar-slide { min-height:420px !important; }
+  .page-home .royal-bar-carousel-nav {
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    gap:8px !important;
+  }
+
+  /* ---------- FOOTER: centered, compact, meaningful ---------- */
+  .site-footer {
+    padding:62px 0 calc(100px + env(safe-area-inset-bottom)) !important;
+    text-align:center !important;
+  }
+  .site-footer .footer-grid {
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:38px !important;
+    justify-items:center !important;
+    text-align:center !important;
+  }
+  .site-footer .footer-grid>div {
+    width:100% !important;
+    max-width:360px !important;
+    margin-inline:auto !important;
+    text-align:center !important;
+  }
+  .site-footer .footer-brand,
+  .site-footer .footer-brand p {
+    margin-inline:auto !important;
+    text-align:center !important;
+  }
+  .site-footer .footer-logo {
+    display:inline-flex !important;
+    margin:0 auto 18px !important;
+    justify-content:center !important;
+  }
+  .site-footer .footer-links {
+    justify-items:center !important;
+  }
+  .site-footer .footer-label {
+    text-align:center !important;
+  }
+  .site-footer .socials,
+  .site-footer .social-icon-row {
+    justify-content:center !important;
+    margin-inline:auto !important;
+  }
+  .site-footer .text-link {
+    justify-content:center !important;
+  }
+  .site-footer .footer-bottom {
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:8px !important;
+    text-align:center !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .page-home .premium-home-content,
+  .page-home .cinematic-film-content-centered { width:calc(100% - 30px) !important; }
+  .page-home .premium-home-content>h1 { font-size:3.1rem !important; }
+  .page-home .premium-home-tagline { font-size:2.35rem !important; }
+  .page-home .premium-home-meta { width:calc(100% - 30px) !important; }
+  .page-home .premium-home-meta span { font-size:.5rem !important; }
+  .page-home .cinematic-film-content h2 { font-size:2.9rem !important; }
+}
