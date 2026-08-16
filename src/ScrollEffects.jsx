@@ -1,6 +1,9 @@
 import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 
 export default function ScrollEffects() {
+  const location = useLocation()
+
   useEffect(() => {
     const targets = document.querySelectorAll('[data-reveal]')
     if (!targets.length) return undefined
@@ -14,12 +17,12 @@ export default function ScrollEffects() {
           }
         })
       },
-      { threshold: 0.14, rootMargin: '0px 0px -8% 0px' },
+      { threshold: 0.12, rootMargin: '0px 0px -7% 0px' },
     )
 
     targets.forEach((target) => observer.observe(target))
     return () => observer.disconnect()
-  }, [])
+  }, [location.pathname])
 
   return null
 }
