@@ -19,29 +19,53 @@ function Brand({ footer = false }) {
 function Header() {
   const [open, setOpen] = useState(false)
   const location = useLocation()
+
   useEffect(() => { setOpen(false) }, [location.pathname])
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [open])
 
+  useEffect(() => {
+    if (!open) return undefined
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') setOpen(false)
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [open])
+
   return (
-    <header className="site-header">
+    <header className={`site-header ${open ? 'menu-open' : ''}`}>
       <div className="header-inner shell">
         <Brand />
         <nav className="desktop-nav" aria-label="Primary navigation">
           {nav.map(([label, path]) => <NavLink key={path} to={path} className={({ isActive }) => isActive ? 'active' : ''}>{label}</NavLink>)}
         </nav>
         <Link className="button button-gold header-cta" to="/booking">Book a Table</Link>
-        <button className="menu-toggle" type="button" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X size={27}/> : <Menu size={29}/>}</button>
+        <button className="menu-toggle" type="button" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen((value) => !value)}>{open ? <X size={24}/> : <Menu size={25}/>}</button>
       </div>
-      <div className={`mobile-panel ${open ? 'open' : ''}`} aria-hidden={!open}>
-        <nav aria-label="Mobile navigation">
-          {nav.map(([label, path]) => <NavLink key={path} to={path}>{label}</NavLink>)}
-          <NavLink className="mobile-book" to="/booking">Reserve a Table</NavLink>
+
+      <button className={`mobile-menu-backdrop ${open ? 'open' : ''}`} type="button" aria-label="Close navigation" tabIndex={open ? 0 : -1} onClick={() => setOpen(false)} />
+
+      <aside id="mobile-navigation" className={`mobile-panel ${open ? 'open' : ''}`} aria-hidden={!open}>
+        <div className="mobile-panel-head">
+          <span>Explore Aurelia</span>
+          <small>Dining · Bar · Gatherings</small>
+        </div>
+        <nav aria-label="Mobile navigation" className="mobile-nav-grid">
+          {nav.map(([label, path]) => (
+            <NavLink key={path} to={path} className={({ isActive }) => isActive ? 'active' : ''}>
+              {label}
+            </NavLink>
+          ))}
         </nav>
-        <div className="mobile-panel-meta"><a href={`tel:${site.phone.replace(/[^0-9+]/g, '')}`}><Phone size={17}/> {site.phone}</a><span><MapPin size={17}/> {site.address}</span></div>
-      </div>
+        <NavLink className="mobile-book" to="/booking"><CalendarDays size={17}/> Reserve a Table</NavLink>
+        <div className="mobile-panel-meta">
+          <a href={`tel:${site.phone.replace(/[^0-9+]/g, '')}`}><Phone size={16}/> {site.phone}</a>
+          <span><MapPin size={16}/> {site.address}</span>
+        </div>
+      </aside>
     </header>
   )
 }
