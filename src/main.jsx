@@ -15,6 +15,7 @@ import './about-wow.css'
 import './final-restaurant-polish.css'
 import './bar-effects.css'
 import './royal-blog.css'
+import './home-iconify-illustrations.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
