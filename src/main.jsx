@@ -27,6 +27,7 @@ import './menukit-downloads.css'
 import './menu-navigation-repair.css'
 import './responsive-final-qa.css'
 import './menu-kit-hero-ux.css'
+import './mobile-production-fixes.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
