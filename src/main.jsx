@@ -41,6 +41,7 @@ import './mobile-home-meta-border-fix.css'
 import './mobile-home-first-impression-final.css'
 import './mobile-home-meta-row-final.css'
 import './final-release-polish.css'
+import './home-hero-header-final.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
