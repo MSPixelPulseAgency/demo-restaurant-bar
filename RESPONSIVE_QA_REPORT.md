@@ -93,16 +93,18 @@ Status: Minor mobile UX issue fixed.
 - Featured blog imagery gets a controlled mobile height.
 
 ### Menu Kit
-Status: Good; redesigned PDFs prepared.
+Status: Good; redesigned PDFs integrated.
 
 - Resource cards already stack correctly on mobile.
 - Download/Open actions get full touch-friendly height on phones.
 - Hero receives safe fixed-header top spacing.
 - All three downloadable menu PDFs were redesigned with imagery, restaurant illustration motifs and matching Aurelia typography/colors.
+- `scripts/generate-menu-pdfs.mjs` now regenerates the PDF set before `npm run dev` and `npm run build`, so Vercel production builds receive the same Menu Kit documents automatically.
+- The generator tolerates a temporary image-fetch failure and still creates valid menu PDFs rather than breaking the website build.
 
 ## PDF QA
 
-New PDFs were generated and rendered to PNG for visual verification. Checked for:
+The final designed PDFs were rendered to PNG at 160 DPI for visual verification. Checked for:
 
 - clipped text
 - overlapping text
@@ -112,12 +114,14 @@ New PDFs were generated and rendered to PNG for visual verification. Checked for
 - inconsistent margins
 - page-number/footer collisions
 
-Deliverables prepared:
+Deliverables:
 
 - `aurelia-dining-menu.pdf` - 4 pages
 - `aurelia-private-events-menu.pdf` - 3 pages
 - `aurelia-catering-menu.pdf` - 3 pages
 
-## Notes
+The build-time PDF generator was also syntax-checked and executed in a no-network environment. Its image-fetch fallback produced valid PDFs that successfully rendered, confirming that a transient remote-image problem will not block a Vercel build.
 
-The responsive audit was intentionally conservative: where the current code already handled a breakpoint correctly, it was left alone. The final stylesheet only addresses concrete overflow, touch-target, stacking, form, filter, and narrow-screen risks found during the source/screenshot review.
+## Verification note
+
+This was a conservative source-level responsive audit supported by the desktop/mobile screenshots shared during development. The available execution environment cannot directly run a full browser session against the user's localhost or the connected Aurelia Vercel project, so this report does not claim automated pixel-by-pixel browser testing at every breakpoint. Existing layouts that already had safe responsive behavior were intentionally left unchanged.
