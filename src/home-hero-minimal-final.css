@@ -1,0 +1,50 @@
+/* Final Home hero refinement.
+   Desktop/tablet: use a quieter, more minimal fine-dining image and remove excess visual space below the header.
+   Mobile spacing is intentionally left to the existing mobile-specific layers. */
+
+@media (min-width: 768px) {
+  .page-home .premium-home-hero {
+    --home-image: url('https://images.unsplash.com/photo-1760662435569-84a4fb1fa407?auto=format&fit=crop&w=2400&q=88') !important;
+    background-image: var(--home-image) !important;
+    background-position: center 58% !important;
+    background-size: cover !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .page-home .premium-home-shade {
+    background:
+      linear-gradient(90deg, rgba(6, 4, 3, .78) 0%, rgba(6, 4, 3, .60) 42%, rgba(6, 4, 3, .33) 72%, rgba(6, 4, 3, .48) 100%),
+      linear-gradient(180deg, rgba(5, 4, 3, .22) 0%, rgba(5, 4, 3, .12) 34%, rgba(5, 4, 3, .46) 73%, rgba(5, 4, 3, .82) 100%) !important;
+  }
+
+  .page-home .premium-home-content {
+    padding-top: clamp(28px, 4.5vh, 54px) !important;
+    padding-bottom: clamp(24px, 4vh, 48px) !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  .site-header {
+    height: 70px !important;
+    min-height: 70px !important;
+  }
+
+  .site-header .header-inner.shell,
+  .site-header .shell.header-inner {
+    height: 70px !important;
+    min-height: 70px !important;
+  }
+
+  .site-header .desktop-nav a {
+    min-height: 70px !important;
+  }
+
+  .page-home .premium-home-hero {
+    min-height: calc(100svh - 70px) !important;
+  }
+
+  .site-header .desktop-nav a::after {
+    bottom: 13px !important;
+  }
+}
