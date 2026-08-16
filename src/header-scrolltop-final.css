@@ -1,0 +1,152 @@
+/* Final mobile header refinement + global scroll-to-top control */
+
+.scroll-top{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:92;
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(18,13,10,.72);
+  color:#f4d29a;
+  box-shadow:0 10px 30px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.08);
+  backdrop-filter:blur(16px) saturate(135%);
+  -webkit-backdrop-filter:blur(16px) saturate(135%);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px) scale(.94);
+  transition:opacity .22s ease,transform .22s ease,visibility .22s ease,background .22s ease,border-color .22s ease;
+  cursor:pointer;
+}
+.scroll-top.is-visible{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
+.scroll-top:hover{background:rgba(44,30,20,.88);border-color:rgba(216,185,130,.46);transform:translateY(-2px)}
+.scroll-top:focus-visible{outline:2px solid #d8b982;outline-offset:3px}
+
+.hamburger-lines{
+  width:24px;
+  height:18px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items:flex-end;
+}
+.hamburger-lines span{
+  display:block;
+  height:2px;
+  border-radius:99px;
+  background:currentColor;
+  transition:width .2s ease,transform .2s ease;
+}
+.hamburger-lines span:nth-child(1){width:24px}
+.hamburger-lines span:nth-child(2){width:18px}
+.hamburger-lines span:nth-child(3){width:22px}
+
+@media (max-width: 900px){
+  .site-header{
+    background:linear-gradient(180deg,rgba(10,8,7,.96),rgba(14,10,8,.90));
+    backdrop-filter:blur(18px) saturate(128%);
+    -webkit-backdrop-filter:blur(18px) saturate(128%);
+    border-bottom:1px solid rgba(255,255,255,.07);
+  }
+  .header-inner.shell{
+    min-height:78px;
+    padding-left:18px;
+    padding-right:18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+  }
+  .site-header .brand{
+    min-width:0;
+    display:flex;
+    align-items:center;
+    gap:11px;
+  }
+  .site-header .brand-mark{
+    width:46px;
+    height:46px;
+    flex:0 0 46px;
+  }
+  .site-header .brand-copy{min-width:0}
+  .site-header .brand-copy strong{
+    display:block;
+    color:#fff;
+    font-size:clamp(1.22rem,5vw,1.48rem);
+    line-height:1;
+    letter-spacing:.045em;
+    white-space:nowrap;
+  }
+  .site-header .brand-copy small{
+    display:block;
+    margin-top:6px;
+    color:rgba(255,255,255,.67);
+    font-size:.54rem;
+    letter-spacing:.17em;
+    white-space:nowrap;
+  }
+  .menu-toggle{
+    width:48px;
+    height:48px;
+    flex:0 0 48px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.16);
+    color:#fff;
+    background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 10px 24px rgba(0,0,0,.16);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+  }
+  .menu-toggle:active{transform:scale(.97)}
+  .site-header.menu-open .menu-toggle{background:rgba(183,138,82,.13);border-color:rgba(216,185,130,.32)}
+  .mobile-panel{
+    top:88px;
+    right:16px;
+    left:16px;
+    width:auto;
+    max-height:calc(100svh - 108px);
+    padding:18px;
+    border-radius:24px;
+  }
+  .mobile-panel-head{padding-bottom:12px;margin-bottom:8px}
+  .mobile-nav-grid{display:grid!important;grid-template-columns:1fr!important;gap:5px!important}
+  .mobile-nav-grid a{
+    min-height:43px;
+    display:flex;
+    align-items:center;
+    padding:0 14px!important;
+    border-radius:12px;
+  }
+  .mobile-book{margin-top:10px;min-height:46px}
+  .mobile-panel-meta{margin-top:12px;padding-top:12px}
+  .scroll-top{
+    right:16px;
+    bottom:94px;
+    width:38px;
+    height:38px;
+  }
+}
+
+@media (max-width: 430px){
+  .header-inner.shell{min-height:74px;padding-left:15px;padding-right:15px}
+  .site-header .brand{gap:9px}
+  .site-header .brand-mark{width:42px;height:42px;flex-basis:42px}
+  .site-header .brand-copy strong{font-size:1.2rem}
+  .site-header .brand-copy small{font-size:.49rem;letter-spacing:.14em}
+  .menu-toggle{width:46px;height:46px;flex-basis:46px}
+  .hamburger-lines{width:22px;height:17px}
+  .hamburger-lines span:nth-child(1){width:22px}
+  .hamburger-lines span:nth-child(2){width:16px}
+  .hamburger-lines span:nth-child(3){width:20px}
+  .mobile-panel{top:82px;right:12px;left:12px;max-height:calc(100svh - 96px);padding:16px;border-radius:20px}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .scroll-top{transition:none}
+}
