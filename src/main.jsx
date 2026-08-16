@@ -22,6 +22,8 @@ import './final-cinematic-menu.css'
 import './bar-clean-fix.css'
 import './bar-single-carousel.css'
 import './menu-drinks-polish.css'
+import './menu-spacing-repair.css'
+import './menukit-downloads.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
