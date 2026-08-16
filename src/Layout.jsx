@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
-import { X, Phone, MapPin, CalendarDays, ChevronUp } from 'lucide-react'
+import { Menu, X, Phone, MapPin, CalendarDays, ChevronUp } from 'lucide-react'
 import { FaFacebookF, FaInstagram, FaPinterestP, FaYelp } from 'react-icons/fa'
 import { nav, site } from './data'
 import CinematicFilm from './CinematicFilm'
@@ -44,7 +44,7 @@ function Header() {
         </nav>
         <Link className="button button-gold header-cta" to="/booking">Book a Table</Link>
         <button className="menu-toggle" type="button" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen((value) => !value)}>
-          {open ? <X size={23}/> : <span className="hamburger-lines" aria-hidden="true"><span/><span/><span/></span>}
+          {open ? <X size={24}/> : <Menu size={25}/>} 
         </button>
       </div>
 
