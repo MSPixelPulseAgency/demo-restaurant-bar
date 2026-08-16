@@ -14,6 +14,13 @@ const drinks = [
   ['Reserve Selection', 'A rotating glass pour from the cellar', images.winePour],
 ]
 
+const barMoments = [
+  [images.cocktailClose, 'Signature cocktails'],
+  [images.barNight, 'The bar after dark'],
+  [images.winePour, 'Cellar pours'],
+  [images.bar, 'Late-night atmosphere'],
+]
+
 export default function HomeRoyalExtras() {
   return (
     <>
@@ -24,11 +31,11 @@ export default function HomeRoyalExtras() {
           <div className="royal-section-heading">
             <p className="eyebrow">Opening season</p>
             <h2>A few reasons to arrive early.</h2>
-            <p>Promotional concepts for the demo — designed to show William how opening offers, happy hours and seasonal campaigns can live on the final site.</p>
+            <p>Promotional concepts for the demo — designed to show how opening offers, happy hours and seasonal campaigns can live on the final site.</p>
           </div>
           <div className="royal-offer-grid">
             {offers.map(({ icon: Icon, eyebrow, title, text, note }) => (
-              <article className="royal-offer-card" key={title}>
+              <article className="royal-offer-card interactive-card" tabIndex="0" key={title}>
                 <div className="royal-offer-icon"><Icon size={22}/></div>
                 <p>{eyebrow}</p>
                 <h3>{title}</h3>
@@ -55,19 +62,27 @@ export default function HomeRoyalExtras() {
           <div className="royal-bar-copy">
             <div className="royal-bar-chip"><Sparkles size={14}/> After dinner, stay awhile</div>
             <p className="eyebrow light">Aurelia Bar</p>
-            <h2>Dark glass, warm light, very good drinks.</h2>
+            <h2>Dark glass, warm light, unforgettable pours.</h2>
             <p>The bar is designed as the second act of the evening — cocktails, cellar pours, bar bites and a room that becomes richer after dark.</p>
             <div className="royal-bar-meta"><span><Clock3 size={16}/> Late-night service</span><span><Wine size={16}/> Curated cellar</span><span><Martini size={16}/> Signature cocktails</span></div>
             <Link to="/menu" className="button button-gold">Explore Cocktails</Link>
           </div>
           <div className="royal-drink-stack">
             {drinks.map(([name, detail, image], index) => (
-              <article className={`royal-drink-card royal-drink-${index + 1}`} key={name}>
+              <article className={`royal-drink-card royal-drink-${index + 1} interactive-card`} tabIndex="0" key={name}>
                 <img src={image} alt={name} loading="lazy"/>
                 <div><span>0{index + 1}</span><h3>{name}</h3><p>{detail}</p></div>
               </article>
             ))}
           </div>
+        </div>
+        <div className="shell royal-bar-photo-strip" aria-label="Aurelia bar moments">
+          {barMoments.map(([image, label]) => (
+            <figure className="royal-bar-photo interactive-card" key={label}>
+              <img src={image} alt={label} loading="lazy" decoding="async" />
+              <figcaption>{label}</figcaption>
+            </figure>
+          ))}
         </div>
       </section>
     </>
