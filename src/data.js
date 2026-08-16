@@ -11,7 +11,7 @@ export const site = {
 export const nav = [
   ['Home', '/'], ['About', '/about'], ['Menu', '/menu'], ['Banquet', '/banquet'],
   ['Catering', '/catering'], ['Gallery', '/gallery'], ['Hours', '/visiting-hours'],
-  ['Menu Kit', '/menu-kit'], ['Contact', '/contact'],
+  ['Blog', '/blog'], ['Menu Kit', '/menu-kit'], ['Contact', '/contact'],
 ]
 
 export const images = {
@@ -28,6 +28,12 @@ export const images = {
   banquet: 'https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1800&q=86',
   catering: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1800&q=86',
   chef: 'https://images.unsplash.com/photo-1583394293214-28ded15ee548?auto=format&fit=crop&w=1400&q=86',
+  champagne: 'https://images.unsplash.com/photo-1547595628-c61a29f496f0?auto=format&fit=crop&w=1600&q=86',
+  lounge: 'https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?auto=format&fit=crop&w=1800&q=86',
+  winePour: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1600&q=86',
+  cocktailClose: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1600&q=86',
+  barNight: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1800&q=86',
+  plated: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=1600&q=86',
 }
 
 export const menu = {
