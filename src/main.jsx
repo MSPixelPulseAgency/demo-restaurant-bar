@@ -13,6 +13,7 @@ import './fresco-editorial.css'
 import './footer-social-sketches.css'
 import './about-wow.css'
 import './final-restaurant-polish.css'
+import './bar-effects.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
