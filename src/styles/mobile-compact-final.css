@@ -1,0 +1,348 @@
+/* Final compact mobile rhythm — loaded last. Desktop/tablet remain untouched. */
+@media (max-width: 767px) {
+  :root {
+    --mobile-header-h: 72px;
+    --mobile-actions-h: 66px;
+  }
+
+  /* Shared mobile page rhythm */
+  .page-main,
+  .page-main > section,
+  .premium-section {
+    min-width: 0;
+  }
+
+  .premium-section {
+    padding: 58px 0 !important;
+  }
+
+  .premium-section-title {
+    margin-bottom: 26px !important;
+  }
+
+  .premium-section-title h2 {
+    font-size: clamp(2.05rem, 10vw, 3.1rem) !important;
+    line-height: .98 !important;
+  }
+
+  /* HOME HERO — compact, intentional, no dead top/bottom space */
+  .premium-home-hero {
+    min-height: 0 !important;
+    height: auto !important;
+    display: block !important;
+    padding: 0 !important;
+    background-position: 58% center !important;
+  }
+
+  .premium-home-shade {
+    background:
+      linear-gradient(180deg, rgba(6,5,4,.42) 0%, rgba(6,5,4,.22) 24%, rgba(6,5,4,.67) 68%, rgba(6,5,4,.94) 100%),
+      linear-gradient(90deg, rgba(6,5,4,.66), rgba(6,5,4,.10) 78%) !important;
+  }
+
+  .premium-home-content {
+    padding: 52px 20px 24px !important;
+    margin: 0 auto !important;
+    min-height: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+  }
+
+  .premium-home-kicker {
+    width: fit-content !important;
+    max-width: 100% !important;
+    margin: 0 0 22px !important;
+    padding: 9px 13px !important;
+    font-size: .72rem !important;
+    letter-spacing: .08em !important;
+    text-transform: none !important;
+  }
+
+  .premium-home-content h1 {
+    font-size: clamp(4rem, 18vw, 5.8rem) !important;
+    line-height: .84 !important;
+    letter-spacing: -.055em !important;
+    margin: 0 0 20px !important;
+    text-transform: none !important;
+  }
+
+  .premium-home-tagline {
+    max-width: 9.5ch !important;
+    margin: 0 0 18px !important;
+    font-size: clamp(2.6rem, 12vw, 4rem) !important;
+    line-height: .88 !important;
+  }
+
+  .premium-home-description {
+    max-width: 31rem !important;
+    margin: 0 0 24px !important;
+    font-size: 1rem !important;
+    line-height: 1.58 !important;
+  }
+
+  .premium-home-actions {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+    margin: 0 !important;
+  }
+
+  .premium-home-actions .button {
+    min-height: 52px !important;
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .premium-home-meta {
+    position: static !important;
+    inset: auto !important;
+    transform: none !important;
+    width: calc(100% - 40px) !important;
+    margin: 0 20px 24px !important;
+    padding: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 0 !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+  }
+
+  .premium-home-meta span {
+    min-width: 0 !important;
+    min-height: 74px !important;
+    padding: 12px 8px !important;
+    border-right: 1px solid rgba(255,255,255,.10) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 7px !important;
+    white-space: normal !important;
+    text-align: center !important;
+    font-size: .62rem !important;
+    line-height: 1.25 !important;
+    letter-spacing: .055em !important;
+  }
+
+  .premium-home-meta span:last-child {
+    border-right: 0 !important;
+  }
+
+  /* Inner-page heroes: same compact, polished mobile rhythm as About */
+  .premium-hero,
+  .premium-hero.premium-hero-compact {
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 84px 0 34px !important;
+    align-items: end !important;
+    background-position: center !important;
+  }
+
+  .premium-hero-inner {
+    padding: 0 20px !important;
+  }
+
+  .premium-hero-copy {
+    max-width: 100% !important;
+    padding: 24px 22px !important;
+    border-radius: 22px !important;
+  }
+
+  .premium-hero h1 {
+    font-size: clamp(2.8rem, 14vw, 4.25rem) !important;
+    line-height: .92 !important;
+    letter-spacing: -.045em !important;
+  }
+
+  .premium-hero-text {
+    margin-top: 14px !important;
+    font-size: .98rem !important;
+    line-height: 1.55 !important;
+  }
+
+  /* Cinematic home section stays strong but does not consume excessive height */
+  .cinematic-film.cinematic-film-full {
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 66px 0 70px !important;
+  }
+
+  .cinematic-film-content-centered {
+    min-height: 0 !important;
+    padding: 0 20px !important;
+  }
+
+  .cinematic-film-content-centered h2 {
+    font-size: clamp(2.65rem, 12vw, 4rem) !important;
+    line-height: .96 !important;
+    max-width: 10ch !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .cinematic-film-content-centered > p {
+    max-width: 31rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    line-height: 1.55 !important;
+  }
+
+  .cinematic-film-actions {
+    width: 100% !important;
+    max-width: 34rem !important;
+    margin: 28px auto 0 !important;
+  }
+
+  /* Make common split/collage sections breathe but not sprawl */
+  .premium-split,
+  .premium-split-wide {
+    gap: 34px !important;
+  }
+
+  .premium-collage,
+  .premium-photo-stack,
+  .premium-photo-stack-left {
+    min-height: 0 !important;
+    padding: 0 !important;
+  }
+
+  .premium-collage-main,
+  .premium-photo-large {
+    height: auto !important;
+    aspect-ratio: 4 / 5 !important;
+    border-radius: 24px !important;
+  }
+
+  .premium-collage-float,
+  .premium-photo-small {
+    position: static !important;
+    width: 72% !important;
+    height: auto !important;
+    aspect-ratio: 4 / 3 !important;
+    margin: -58px 0 0 auto !important;
+    border: 6px solid var(--aurelia-ivory, #f5efe5) !important;
+    border-radius: 20px !important;
+  }
+
+  /* Footer — compact, centered and useful on mobile */
+  .site-footer {
+    padding: 46px 0 calc(var(--mobile-actions-h) + 34px) !important;
+    min-height: 0 !important;
+  }
+
+  .site-footer .footer-sketch {
+    opacity: .025 !important;
+    transform: scale(.72) !important;
+  }
+
+  .footer-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    text-align: center !important;
+  }
+
+  .footer-grid > div {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .footer-brand {
+    max-width: 30rem !important;
+    margin: 0 auto !important;
+  }
+
+  .footer-logo {
+    justify-content: center !important;
+    margin: 0 auto 14px !important;
+  }
+
+  .footer-brand > p,
+  .footer-grid > div > p,
+  .footer-grid > div > a {
+    max-width: 30rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .footer-label {
+    margin: 0 0 12px !important;
+  }
+
+  .footer-links {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 9px 16px !important;
+    max-width: 32rem !important;
+  }
+
+  .footer-links a {
+    margin: 0 !important;
+  }
+
+  .socials.social-icon-row {
+    justify-content: center !important;
+    margin: 4px 0 14px !important;
+  }
+
+  .footer-bottom {
+    margin-top: 32px !important;
+    padding-top: 22px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    text-align: center !important;
+  }
+
+  .footer-bottom span {
+    text-align: center !important;
+  }
+
+  /* Fixed mobile actions: compact and clear without obscuring content */
+  .mobile-actions {
+    left: 14px !important;
+    right: 14px !important;
+    bottom: max(10px, env(safe-area-inset-bottom)) !important;
+    width: auto !important;
+    min-height: var(--mobile-actions-h) !important;
+    border-radius: 22px !important;
+  }
+
+  .mobile-actions a {
+    min-height: var(--mobile-actions-h) !important;
+    gap: 5px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .premium-home-content {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .premium-home-meta {
+    width: calc(100% - 32px) !important;
+    margin-left: 16px !important;
+    margin-right: 16px !important;
+  }
+
+  .premium-home-tagline {
+    font-size: clamp(2.35rem, 12vw, 3.4rem) !important;
+  }
+
+  .premium-home-description {
+    font-size: .94rem !important;
+  }
+
+  .premium-home-meta span {
+    font-size: .56rem !important;
+    padding-inline: 5px !important;
+  }
+}

@@ -1,10 +1,10 @@
 import { Route, Routes } from 'react-router-dom'
-import Layout from './Layout'
-import EnhancedMenuPage from './EnhancedMenuPage'
-import EnhancedGalleryPage from './EnhancedGalleryPage'
-import EnhancedAboutPage from './EnhancedAboutPage'
-import MenuKitDownloads from './MenuKitDownloads'
-import { BlogPage, BlogPostPage } from './BlogPages'
+import Layout from './components/Layout'
+import EnhancedMenuPage from './pages/EnhancedMenuPage'
+import EnhancedGalleryPage from './pages/EnhancedGalleryPage'
+import EnhancedAboutPage from './pages/EnhancedAboutPage'
+import MenuKitDownloads from './components/MenuKitDownloads'
+import { BlogPage, BlogPostPage } from './pages/BlogPages'
 import {
   PremiumBanquet,
   PremiumBooking,
@@ -12,8 +12,8 @@ import {
   PremiumContact,
   PremiumHome,
   PremiumVisitingHours,
-} from './PremiumPages'
-import { NotFound } from './pages'
+} from './pages/PremiumPages'
+import { NotFound } from './pages/pages'
 
 export default function App() {
   return (

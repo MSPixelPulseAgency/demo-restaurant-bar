@@ -1,0 +1,210 @@
+/* Aurelia final desktop polish
+   Scoped away from phone layouts. Loaded last to remove legacy conflicts. */
+
+@media (min-width: 768px) {
+  /* Signature menu preview — spaced editorial cards, not one joined strip */
+  .premium-dark-section {
+    padding-top: 118px !important;
+    padding-bottom: 124px !important;
+    background:
+      radial-gradient(circle at 12% 12%, rgba(126, 55, 45, .22), transparent 30%),
+      radial-gradient(circle at 86% 26%, rgba(189, 137, 72, .13), transparent 28%),
+      linear-gradient(145deg, #100b09 0%, #17100d 48%, #261312 100%) !important;
+  }
+
+  .premium-dark-section > .shell {
+    position: relative !important;
+  }
+
+  .premium-dark-section > .shell::before {
+    content: '';
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    right: -90px;
+    top: 52px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(220, 176, 105, .11), transparent 68%);
+    filter: blur(2px);
+    pointer-events: none;
+  }
+
+  .premium-dark-section .premium-heading-row {
+    align-items: flex-end !important;
+    gap: 52px !important;
+    margin-bottom: 50px !important;
+  }
+
+  .premium-dark-section .premium-section-title {
+    max-width: 710px !important;
+  }
+
+  .premium-dark-section .premium-section-title h2 {
+    max-width: 650px !important;
+    margin-bottom: 14px !important;
+    font-size: clamp(3.35rem, 4.6vw, 5.25rem) !important;
+    line-height: .93 !important;
+  }
+
+  .premium-dark-section .premium-section-title > p:last-child {
+    max-width: 520px !important;
+    color: rgba(245, 239, 229, .66) !important;
+  }
+
+  .premium-dark-section .premium-heading-row > .button {
+    flex: 0 0 auto !important;
+    min-width: 176px !important;
+    min-height: 50px !important;
+    border-radius: 999px !important;
+    border-color: rgba(235, 214, 175, .42) !important;
+    background: rgba(255, 255, 255, .035) !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.07), 0 10px 30px rgba(0,0,0,.16) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+  }
+
+  .premium-dark-section .premium-heading-row > .button:hover {
+    color: #17100c !important;
+    border-color: #e7c985 !important;
+    background: linear-gradient(135deg, #f5dfad, #c89543) !important;
+    box-shadow: 0 12px 34px rgba(201, 149, 67, .25) !important;
+  }
+
+  .premium-dish-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 22px !important;
+    align-items: stretch !important;
+  }
+
+  .premium-dish-card {
+    min-width: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(255,255,255,.095) !important;
+    border-radius: 24px !important;
+    background:
+      linear-gradient(155deg, rgba(49, 31, 24, .82), rgba(19, 14, 11, .94)) !important;
+    box-shadow:
+      0 22px 54px rgba(0,0,0,.24),
+      inset 0 1px 0 rgba(255,255,255,.055) !important;
+    transform: translateZ(0) !important;
+    transition: transform .38s cubic-bezier(.2,.75,.25,1), border-color .3s ease, box-shadow .35s ease !important;
+  }
+
+  .premium-dish-card:hover {
+    transform: translateY(-9px) !important;
+    border-color: rgba(221, 183, 112, .42) !important;
+    box-shadow:
+      0 32px 70px rgba(0,0,0,.32),
+      0 0 0 1px rgba(205, 161, 89, .08),
+      inset 0 1px 0 rgba(255,255,255,.08) !important;
+  }
+
+  .premium-dish-media {
+    height: 270px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    background: #211713 !important;
+  }
+
+  .premium-dish-media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, transparent 58%, rgba(12,8,6,.25));
+  }
+
+  .premium-dish-media img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: transform .65s cubic-bezier(.2,.75,.25,1), filter .4s ease !important;
+  }
+
+  .premium-dish-card:hover .premium-dish-media img {
+    transform: scale(1.055) !important;
+    filter: saturate(1.06) contrast(1.02) !important;
+  }
+
+  .premium-dish-media span {
+    z-index: 2 !important;
+    top: 16px !important;
+    right: 16px !important;
+    min-width: 52px !important;
+    min-height: 38px !important;
+    display: grid !important;
+    place-items: center !important;
+    padding: 7px 12px !important;
+    border-radius: 999px !important;
+    color: #f7e2b9 !important;
+    border: 1px solid rgba(255,239,206,.24) !important;
+    background: rgba(20, 13, 10, .7) !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 8px 22px rgba(0,0,0,.24) !important;
+    backdrop-filter: blur(14px) saturate(130%) !important;
+    -webkit-backdrop-filter: blur(14px) saturate(130%) !important;
+  }
+
+  .premium-dish-copy {
+    flex: 1 1 auto !important;
+    min-height: 142px !important;
+    padding: 25px 24px 27px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    gap: 11px !important;
+  }
+
+  .premium-dish-copy h3 {
+    margin: 0 !important;
+    color: #fff8ec !important;
+    font: 600 1.55rem/1.06 var(--serif) !important;
+    letter-spacing: -.015em !important;
+  }
+
+  .premium-dish-copy p {
+    margin: 0 !important;
+    color: rgba(238, 226, 213, .67) !important;
+    font-size: .88rem !important;
+    line-height: 1.58 !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1100px) {
+  .premium-dish-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 20px !important;
+  }
+
+  .premium-dish-media { height: 300px !important; }
+}
+
+@media (min-width: 1025px) {
+  /* Desktop header — one clean glass band, no duplicate underline/separator. */
+  .site-header {
+    border-bottom: 0 !important;
+    box-shadow: 0 10px 32px rgba(0,0,0,.08) !important;
+  }
+
+  .site-header::after,
+  .site-header::before {
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .header-inner {
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .header-inner::after,
+  .header-inner::before {
+    display: none !important;
+  }
+
+  .site-header .shell.header-inner {
+    height: 88px !important;
+  }
+}

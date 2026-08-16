@@ -1,0 +1,102 @@
+/* Final restaurant polish — hierarchy, header safety, illustrations */
+:root{
+  --hero-h1:clamp(3.15rem,5.6vw,5.6rem);
+  --hero-h1-mobile:clamp(2.65rem,12vw,3.9rem);
+  --section-h2:clamp(2.4rem,4.2vw,4.4rem);
+}
+
+.site-header{
+  background:rgba(14,10,8,.72)!important;
+  -webkit-backdrop-filter:blur(20px) saturate(145%);
+  backdrop-filter:blur(20px) saturate(145%);
+  border-bottom:1px solid rgba(255,255,255,.08)!important;
+}
+.header-inner{
+  height:86px!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+
+/* Keep fixed header from covering hero copy */
+.premium-home-content{padding-top:150px!important;padding-bottom:110px!important}
+.premium-hero-inner{padding-top:150px!important}
+.menu-visual-content,.gallery-hero-content{padding-top:150px!important}
+.about-wow-content{padding-top:160px!important}
+
+/* Standard, premium H1 scale across the site */
+.premium-home-content>h1,
+.premium-hero h1,
+.menu-visual-content h1,
+.gallery-hero h1,
+.about-wow-content h1,
+.page-hero h1{
+  font-size:var(--hero-h1)!important;
+  line-height:.98!important;
+  letter-spacing:-.035em!important;
+  text-transform:none!important;
+  max-width:900px!important;
+}
+.premium-home-content>h1{font-family:var(--aurelia-serif)!important;font-style:normal!important;font-weight:700!important}
+.premium-home-tagline{font-family:var(--aurelia-display)!important;font-size:clamp(2.7rem,5vw,4.9rem)!important;line-height:.97!important;max-width:780px!important;margin-top:20px!important}
+.premium-section-title h2,.about-story-copy h2,.about-section-heading h2,.about-feature-copy h2,.about-final-inner h2{font-size:var(--section-h2)!important;line-height:1!important}
+
+/* More balanced hero glass/content sizing */
+.premium-hero-copy{max-width:720px!important;padding:28px 32px!important;border-radius:22px!important}
+.about-wow-content>p:not(.about-script),.premium-hero-text,.premium-home-description{font-size:1rem!important;line-height:1.7!important}
+
+/* Iconify restaurant illustration rail */
+.about-illustration-rail{
+  position:relative;
+  background:linear-gradient(180deg,#fffaf4,#f5ebdf);
+  border-top:1px solid rgba(94,62,43,.08);
+  border-bottom:1px solid rgba(94,62,43,.09);
+  overflow:hidden;
+}
+.about-illustration-rail::before,
+.about-illustration-rail::after{
+  content:'';position:absolute;pointer-events:none;opacity:.22;background:center/contain no-repeat;
+}
+.about-illustration-rail::before{width:260px;height:210px;left:-70px;top:-52px;background-image:url('/aurelia-kitchen-sketch.svg')}
+.about-illustration-rail::after{width:230px;height:190px;right:-50px;bottom:-58px;background-image:url('/aurelia-cocktail-sketch.svg')}
+.about-illustration-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;z-index:1}
+.about-illustration-item{min-height:150px;display:grid;place-items:center;align-content:center;gap:8px;border-right:1px solid rgba(91,61,44,.09);color:#744b38}
+.about-illustration-item:last-child{border-right:0}
+.about-illustration-item svg{font-size:2.55rem;color:var(--aurelia-coral);filter:drop-shadow(0 6px 14px rgba(128,73,45,.08))}
+.about-illustration-item span{font-family:var(--aurelia-serif);font-size:1rem;font-weight:700}
+
+/* Consistent faded restaurant sketches throughout content */
+.premium-intro::after,.premium-gallery-preview::after,.premium-hours-preview::after,.about-story-section::before,.about-chef-note::before{
+  content:'';position:absolute;pointer-events:none;width:min(310px,24vw);aspect-ratio:1;background:url('/aurelia-kitchen-sketch.svg') center/contain no-repeat;opacity:.22;z-index:0;
+}
+.premium-intro::after{right:-65px;top:30px}.premium-gallery-preview::after{left:-70px;bottom:25px}.premium-hours-preview::after{right:-60px;bottom:-20px}
+.about-story-section::before{left:-90px;bottom:30px}.about-chef-note::before{right:-70px;top:40px}
+
+/* Global reveal feels smoother and less jumpy */
+[data-reveal]{will-change:opacity,transform;transition-duration:.78s!important;transition-timing-function:cubic-bezier(.22,.76,.22,1)!important}
+
+@media(max-width:980px){
+  .header-inner{height:82px!important}
+  .premium-home-content,.premium-hero-inner,.menu-visual-content,.gallery-hero-content,.about-wow-content{padding-top:132px!important}
+  .about-illustration-grid{grid-template-columns:repeat(5,1fr)}
+  .about-illustration-item{min-height:130px}
+}
+
+@media(max-width:700px){
+  .site-header{background:rgba(12,8,6,.82)!important}
+  .header-inner{height:76px!important;width:calc(100% - 28px)!important}
+  .premium-home-content,.premium-hero-inner,.menu-visual-content,.gallery-hero-content,.about-wow-content{padding-top:116px!important}
+  .premium-home-content>h1,.premium-hero h1,.menu-visual-content h1,.gallery-hero h1,.about-wow-content h1,.page-hero h1{font-size:var(--hero-h1-mobile)!important;line-height:1!important;max-width:100%!important}
+  .premium-home-tagline{font-size:clamp(2.25rem,10vw,3.35rem)!important;line-height:1!important}
+  .premium-hero-copy{padding:22px 20px!important;border-radius:18px!important}
+  .about-wow-hero{min-height:72svh!important}
+  .about-wow-content{padding-bottom:62px!important}
+  .about-illustration-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .about-illustration-grid::-webkit-scrollbar{display:none}
+  .about-illustration-item{flex:0 0 34%;min-height:118px;scroll-snap-align:start}
+  .about-illustration-item svg{font-size:2.1rem}
+  .premium-intro::after,.premium-gallery-preview::after,.premium-hours-preview::after,.about-story-section::before,.about-chef-note::before{width:180px;opacity:.16}
+}
+
+@media(prefers-reduced-motion:reduce){
+  [data-reveal]{transition:none!important;will-change:auto}
+}

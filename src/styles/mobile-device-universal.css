@@ -1,0 +1,368 @@
+/* Universal mobile device hardening.
+   Loaded LAST. Targets phone-sized viewports without changing desktop/tablet design. */
+
+@media (max-width: 767px) {
+  :root {
+    --phone-inline: clamp(12px, 4vw, 20px);
+    --phone-section-y: clamp(44px, 10vw, 64px);
+    --phone-radius: clamp(18px, 5vw, 26px);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-padding-top: calc(var(--mobile-header-h, 72px) + 12px);
+  }
+
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip !important;
+  }
+
+  img,
+  video,
+  iframe,
+  svg {
+    max-width: 100%;
+  }
+
+  .shell,
+  .header-inner.shell,
+  .site-footer .shell {
+    width: calc(100% - (var(--phone-inline) * 2)) !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Header: safe-area aware and consistent across compact / large phones. */
+  .site-header {
+    padding-left: env(safe-area-inset-left) !important;
+    padding-right: env(safe-area-inset-right) !important;
+  }
+
+  .header-inner.shell {
+    min-height: clamp(70px, 18vw, 78px) !important;
+    height: auto !important;
+    padding: 8px 0 !important;
+    gap: clamp(10px, 3vw, 16px) !important;
+  }
+
+  .site-header .brand {
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+    gap: clamp(8px, 2.5vw, 12px) !important;
+  }
+
+  .site-header .brand-mark,
+  .site-header .brand-mark-logo {
+    width: clamp(40px, 11vw, 47px) !important;
+    height: clamp(40px, 11vw, 47px) !important;
+    flex: 0 0 clamp(40px, 11vw, 47px) !important;
+  }
+
+  .site-header .brand-copy {
+    min-width: 0 !important;
+  }
+
+  .site-header .brand-copy strong {
+    font-size: clamp(1rem, 5vw, 1.38rem) !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+  }
+
+  .site-header .brand-copy small {
+    margin-top: 5px !important;
+    font-size: clamp(.42rem, 1.7vw, .55rem) !important;
+    letter-spacing: clamp(.09em, .5vw, .16em) !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .menu-toggle {
+    width: clamp(44px, 12vw, 50px) !important;
+    height: clamp(44px, 12vw, 50px) !important;
+    min-width: clamp(44px, 12vw, 50px) !important;
+    min-height: clamp(44px, 12vw, 50px) !important;
+    flex: 0 0 clamp(44px, 12vw, 50px) !important;
+  }
+
+  /* Drawer stays a simple one-column navigation on every phone width. */
+  .mobile-panel {
+    left: max(10px, env(safe-area-inset-left)) !important;
+    right: max(10px, env(safe-area-inset-right)) !important;
+    width: auto !important;
+    max-width: none !important;
+    max-height: calc(100dvh - var(--mobile-header-h, 72px) - 24px - env(safe-area-inset-bottom)) !important;
+  }
+
+  .mobile-nav-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+  }
+
+  .mobile-nav-grid a,
+  .mobile-book {
+    min-height: 44px !important;
+    width: 100% !important;
+  }
+
+  /* Shared phone section rhythm. */
+  .premium-section {
+    padding-top: var(--phone-section-y) !important;
+    padding-bottom: var(--phone-section-y) !important;
+  }
+
+  .premium-section-title h2,
+  .premium-heading-row h2 {
+    overflow-wrap: anywhere !important;
+    text-wrap: balance;
+  }
+
+  p,
+  li,
+  a,
+  button,
+  input,
+  textarea,
+  select {
+    overflow-wrap: break-word;
+  }
+
+  /* Home hero adapts to short and tall phones without giant dead zones. */
+  .page-home .premium-home-hero {
+    min-height: auto !important;
+    height: auto !important;
+    padding-bottom: 10px !important;
+  }
+
+  .page-home .premium-home-content {
+    width: min(100%, 580px) !important;
+    padding: clamp(30px, 8vw, 48px) var(--phone-inline) clamp(18px, 5vw, 28px) !important;
+  }
+
+  .page-home .premium-home-content h1 {
+    font-size: clamp(3.5rem, 18vw, 6rem) !important;
+  }
+
+  .page-home .premium-home-tagline {
+    font-size: clamp(2.25rem, 11vw, 3.85rem) !important;
+    max-width: 12ch !important;
+  }
+
+  .page-home .premium-home-description {
+    max-width: 34rem !important;
+    font-size: clamp(.96rem, 4vw, 1.08rem) !important;
+  }
+
+  .page-home .premium-home-actions {
+    width: min(100%, 34rem) !important;
+  }
+
+  /* Exactly one line: Dinner / Late-night bar / Private events. */
+  .page-home .premium-home-meta {
+    width: min(calc(100% - (var(--phone-inline) * 2)), 560px) !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  .page-home .premium-home-meta > span {
+    min-width: 0 !important;
+    white-space: nowrap !important;
+    font-size: clamp(.46rem, 2.2vw, .64rem) !important;
+    letter-spacing: .02em !important;
+    padding-inline: 3px !important;
+  }
+
+  /* Shared heroes across inner pages: stable widths and no collision. */
+  .premium-hero,
+  .premium-hero.premium-hero-compact,
+  .menukit-premium-hero,
+  .premium-booking-hero,
+  .gallery-hero,
+  .blog-hero {
+    min-height: auto !important;
+  }
+
+  .premium-hero-copy,
+  .premium-booking-intro,
+  .premium-booking-form,
+  .premium-contact-form,
+  .premium-visit-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* Images preserve focal content instead of forcing unsafe crops. */
+  .premium-collage-main,
+  .premium-collage-float,
+  .premium-photo-large,
+  .premium-photo-small,
+  .about-story-main,
+  .about-story-float,
+  .stack-main,
+  .stack-small {
+    max-width: 100% !important;
+    object-position: center !important;
+  }
+
+  /* Cards/grids remain inside viewport. */
+  .premium-dish-grid,
+  .premium-icon-grid,
+  .premium-value-cards,
+  .premium-event-cards,
+  .premium-catering-cards,
+  .premium-resource-grid,
+  .premium-contact-cards,
+  .premium-process-grid,
+  .menukit-grid,
+  .blog-related-grid {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .premium-dish-card,
+  .menu-photo-card,
+  .menukit-card,
+  .glass-light,
+  .glass-dark {
+    min-width: 0 !important;
+  }
+
+  /* Forms use a minimum 16px size to prevent iOS Safari zoom-on-focus. */
+  input,
+  textarea,
+  select {
+    max-width: 100% !important;
+    font-size: 16px !important;
+  }
+
+  /* Fixed action dock: safe-area aware, exact three columns, true centered icons. */
+  .mobile-actions {
+    left: max(10px, calc(env(safe-area-inset-left) + 8px)) !important;
+    right: max(10px, calc(env(safe-area-inset-right) + 8px)) !important;
+    bottom: max(8px, env(safe-area-inset-bottom)) !important;
+    height: clamp(64px, 16vw, 72px) !important;
+    min-height: clamp(64px, 16vw, 72px) !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  .mobile-actions > a {
+    min-height: 100% !important;
+    padding: 7px 2px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .mobile-actions > a svg {
+    width: clamp(18px, 5vw, 21px) !important;
+    height: clamp(18px, 5vw, 21px) !important;
+    margin: 0 auto !important;
+  }
+
+  .mobile-actions > a span {
+    font-size: clamp(.54rem, 2.35vw, .68rem) !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+  }
+
+  .scroll-top {
+    right: max(14px, calc(env(safe-area-inset-right) + 10px)) !important;
+    bottom: calc(clamp(64px, 16vw, 72px) + max(22px, env(safe-area-inset-bottom))) !important;
+  }
+
+  /* Footer remains compact but never sits under the dock. */
+  .site-footer {
+    padding-bottom: calc(clamp(64px, 16vw, 72px) + 38px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
+/* Compact phones / older iPhones. */
+@media (max-width: 374px) {
+  :root { --phone-inline: 10px; }
+
+  .site-header .brand-copy strong {
+    font-size: .98rem !important;
+  }
+
+  .site-header .brand-copy small {
+    font-size: .4rem !important;
+    letter-spacing: .08em !important;
+  }
+
+  .page-home .premium-home-content h1 {
+    font-size: clamp(3.3rem, 17.5vw, 4.7rem) !important;
+  }
+
+  .page-home .premium-home-tagline {
+    font-size: clamp(2.15rem, 10.8vw, 3rem) !important;
+  }
+
+  .page-home .premium-home-meta > span {
+    font-size: .45rem !important;
+    padding-inline: 1px !important;
+  }
+}
+
+/* Larger phones, including current Pro / Pro Max-class devices. */
+@media (min-width: 431px) and (max-width: 767px) {
+  :root { --phone-inline: clamp(18px, 4.4vw, 24px); }
+
+  .page-home .premium-home-content {
+    padding-top: 46px !important;
+  }
+
+  .page-home .premium-home-meta > span {
+    font-size: .64rem !important;
+  }
+}
+
+/* Phone landscape: keep navigation and fixed actions usable without consuming the whole viewport. */
+@media (max-width: 932px) and (orientation: landscape) and (max-height: 520px) {
+  .site-header,
+  .header-inner.shell {
+    min-height: 62px !important;
+  }
+
+  .site-header .brand-mark,
+  .site-header .brand-mark-logo {
+    width: 38px !important;
+    height: 38px !important;
+    flex-basis: 38px !important;
+  }
+
+  .menu-toggle {
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    min-height: 42px !important;
+  }
+
+  .mobile-panel {
+    top: 68px !important;
+    max-height: calc(100dvh - 76px) !important;
+  }
+
+  .mobile-actions {
+    height: 58px !important;
+    min-height: 58px !important;
+  }
+
+  .mobile-actions > a {
+    flex-direction: row !important;
+    gap: 7px !important;
+  }
+
+  .scroll-top {
+    bottom: 72px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+}

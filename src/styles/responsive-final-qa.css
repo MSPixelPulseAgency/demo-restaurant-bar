@@ -1,0 +1,107 @@
+/* Final responsive UX QA pass - conservative overrides only.
+   Loaded last so it fixes layout risks without redesigning established pages. */
+
+*,*::before,*::after{box-sizing:border-box}
+.page-main,.page-main>*,.shell{min-width:0}
+img,video,iframe{display:block;max-width:100%}
+button,a,input,select,textarea{touch-action:manipulation}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid rgba(216,185,130,.95);outline-offset:3px}
+
+.premium-section,.gallery-experience,.gallery-intro,.blog-index-section,.about-story-section,.about-values-section,.menukit-section{overflow-x:clip}
+.premium-section-title h2,.premium-hero h1,.about-wow-content h1,.blog-hero h1,.blog-article-head h1,.menukit-hero-copy h1{overflow-wrap:anywhere;text-wrap:balance}
+
+@media(max-width:1024px){
+  .footer-grid{grid-template-columns:1.2fr 1fr!important;gap:42px 32px!important}
+  .footer-bottom{gap:16px!important;flex-wrap:wrap!important}
+}
+
+.premium-booking-form input,.premium-booking-form select,.premium-booking-form textarea,
+.premium-contact-form input,.premium-contact-form select,.premium-contact-form textarea,
+.booking-form input,.booking-form select,.booking-form textarea,
+.contact-form input,.contact-form select,.contact-form textarea{width:100%;max-width:100%;min-width:0}
+
+.video-frame{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:22px}
+.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+@media(max-width:820px){
+  .premium-hours-shell{grid-template-columns:1fr!important;gap:28px!important}
+  .premium-hours-mini>div{grid-template-columns:1fr 1fr 1fr!important}
+  .premium-event-cards,.premium-resource-grid,.premium-banquet-gallery{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .premium-contact-layout,.premium-booking-layout{grid-template-columns:1fr!important;gap:36px!important}
+  .premium-contact-cards{grid-template-columns:1fr 1fr!important}
+  .about-illustration-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  .about-story-grid,.about-chef-note-grid{grid-template-columns:1fr!important;gap:42px!important}
+  .about-mood-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .about-mood-card.large{grid-column:1/-1!important}
+  .about-values-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .gallery-feature-grid{grid-template-columns:1fr!important;gap:42px!important}
+  .blog-related-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+
+@media(max-width:700px){
+  .premium-section,.gallery-intro.section,.gallery-experience.section,.blog-index-section,.about-story-section,.about-values-section,.about-chef-note,.menukit-section{padding-top:58px!important;padding-bottom:64px!important}
+  .premium-hero-inner{padding-top:92px!important;padding-bottom:28px!important}
+  .premium-hero,.page-hero,.gallery-hero,.menu-visual-hero{min-height:420px!important}
+
+  .brand-copy{min-width:0}
+  .brand-copy strong{white-space:nowrap}
+  .footer-grid{grid-template-columns:1fr!important;gap:32px!important}
+  .footer-links{display:grid!important;grid-template-columns:1fr 1fr!important;gap:10px 18px!important}
+  .footer-bottom{flex-direction:column!important;align-items:flex-start!important;padding-bottom:94px!important}
+
+  .about-illustration-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+  .about-illustration-item:last-child{grid-column:1/-1!important;max-width:52%;width:100%;justify-self:center}
+  .about-story-collage{min-height:500px!important}
+  .about-story-main{height:430px!important;width:100%!important;object-fit:cover!important}
+  .about-story-float.top{width:42%!important;height:150px!important;right:0!important;top:18px!important}
+  .about-story-float.bottom{width:45%!important;height:150px!important;left:0!important;bottom:8px!important}
+  .about-mood-grid{grid-template-columns:1fr!important}
+  .about-mood-card,.about-mood-card.large{grid-column:auto!important;min-height:360px!important}
+  .about-values-grid{grid-template-columns:1fr!important}
+  .about-final-inner{display:grid!important;grid-template-columns:1fr!important;gap:22px!important;align-items:start!important}
+  .about-final-inner .button{width:100%;justify-content:center}
+
+  .menu-category-glass{max-width:100vw!important}
+  .menu-category-glass::after{content:'Swipe';position:sticky;right:0;align-self:center;flex:none;padding:7px 9px;margin-left:2px;border-radius:999px;background:rgba(36,22,15,.82);color:#fff;font:700 .62rem/1 Lato,sans-serif;letter-spacing:.08em;text-transform:uppercase;pointer-events:none}
+  .menu-category-intro{display:grid!important;grid-template-columns:1fr!important;gap:10px!important}
+  .menu-category-summary{max-width:100%!important}
+
+  .premium-hours-mini>div{grid-template-columns:1fr!important;gap:4px!important;padding:14px 0!important}
+  .premium-event-cards,.premium-resource-grid,.premium-banquet-gallery,.premium-contact-cards{grid-template-columns:1fr!important}
+  .premium-wide-image>.shell{margin:18px!important;max-width:none!important;width:calc(100% - 36px)!important;padding:24px!important}
+
+  .premium-booking-form,.premium-contact-form{padding:22px!important;border-radius:22px!important}
+  .premium-booking-form input,.premium-booking-form select,.premium-booking-form textarea,
+  .premium-contact-form input,.premium-contact-form select,.premium-contact-form textarea{font-size:16px!important;min-height:48px!important}
+  .premium-contact-form textarea,.premium-booking-form textarea{min-height:130px!important}
+
+  .gallery-lightbox-close,.gallery-lightbox-nav{width:48px!important;height:48px!important;display:grid!important;place-items:center!important}
+  .gallery-lightbox-figure{width:100%!important;max-width:100%!important}
+  .gallery-lightbox-figure figcaption{max-height:30vh;overflow:auto}
+
+  .blog-filters{display:flex!important;overflow-x:auto!important;flex-wrap:nowrap!important;gap:8px!important;padding-bottom:5px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .blog-filters::-webkit-scrollbar{display:none}
+  .blog-filters button{flex:0 0 auto!important;white-space:nowrap!important;min-height:44px!important}
+  .blog-related-grid{grid-template-columns:1fr!important}
+  .blog-featured>img{min-height:0!important;height:320px!important;object-fit:cover!important}
+
+  .menukit-hero{min-height:410px!important;padding-top:72px!important}
+  .menukit-card-copy{padding:21px!important}
+  .menukit-actions a{min-height:48px!important;display:flex!important;align-items:center!important;justify-content:center!important}
+}
+
+@media(max-width:420px){
+  .shell{width:calc(100% - 32px)!important}
+  .premium-home-actions{grid-template-columns:1fr!important}
+  .premium-home-meta{grid-template-columns:1fr 1fr 1fr!important}
+  .about-story-collage{min-height:460px!important}
+  .about-story-main{height:395px!important}
+  .footer-links{grid-template-columns:1fr!important}
+  .menukit-hero-copy{padding:20px!important}
+  .menukit-hero-copy h1{font-size:clamp(2.35rem,12vw,3.35rem)!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}

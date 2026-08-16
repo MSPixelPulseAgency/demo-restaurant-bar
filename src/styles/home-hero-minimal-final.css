@@ -1,0 +1,73 @@
+/* Final Home hero refinement.
+   All devices: use a dark restaurant/bar image with device-specific focal positioning.
+   Keep the existing black opacity treatment for strong text contrast.
+   Desktop/tablet: also remove excess visual space below the header. */
+
+.page-home .premium-home-hero {
+  --home-image: url('https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&fit=crop&w=2400&q=88') !important;
+  background-image: var(--home-image) !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+
+@media (min-width: 768px) {
+  .page-home .premium-home-hero {
+    background-position: center 52% !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .page-home .premium-home-shade {
+    background:
+      linear-gradient(90deg, rgba(4, 3, 2, .82) 0%, rgba(4, 3, 2, .67) 40%, rgba(4, 3, 2, .42) 72%, rgba(4, 3, 2, .58) 100%),
+      linear-gradient(180deg, rgba(4, 3, 2, .34) 0%, rgba(4, 3, 2, .20) 34%, rgba(4, 3, 2, .52) 73%, rgba(4, 3, 2, .88) 100%) !important;
+  }
+
+  .page-home .premium-home-content {
+    padding-top: clamp(28px, 4.5vh, 54px) !important;
+    padding-bottom: clamp(24px, 4vh, 48px) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .page-home .premium-home-hero {
+    background-position: 58% center !important;
+  }
+
+  .page-home .premium-home-shade {
+    background:
+      linear-gradient(180deg, rgba(4, 3, 2, .58) 0%, rgba(4, 3, 2, .38) 24%, rgba(4, 3, 2, .56) 58%, rgba(4, 3, 2, .90) 100%),
+      radial-gradient(circle at 50% 40%, rgba(35, 20, 10, .05), rgba(4, 3, 2, .58) 78%) !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .page-home .premium-home-hero {
+    background-position: 60% center !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  .site-header {
+    height: 70px !important;
+    min-height: 70px !important;
+  }
+
+  .site-header .header-inner.shell,
+  .site-header .shell.header-inner {
+    height: 70px !important;
+    min-height: 70px !important;
+  }
+
+  .site-header .desktop-nav a {
+    min-height: 70px !important;
+  }
+
+  .page-home .premium-home-hero {
+    min-height: calc(100svh - 70px) !important;
+  }
+
+  .site-header .desktop-nav a::after {
+    bottom: 13px !important;
+  }
+}

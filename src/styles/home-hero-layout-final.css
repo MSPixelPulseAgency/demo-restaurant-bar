@@ -1,0 +1,185 @@
+/* Final Aurelia Home hero composition.
+   Goal: generated-concept feel using a real restaurant/bar image, left-aligned editorial hierarchy,
+   About-page-like spacing, and consistent desktop/mobile readability. */
+
+.page-home .premium-home-hero {
+  --home-image: url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=2400&q=90') !important;
+  position: relative !important;
+  isolation: isolate !important;
+  background-image: var(--home-image) !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center 48% !important;
+}
+
+.page-home .premium-home-shade {
+  background:
+    linear-gradient(90deg, rgba(5, 4, 3, .90) 0%, rgba(5, 4, 3, .80) 28%, rgba(5, 4, 3, .54) 54%, rgba(5, 4, 3, .28) 76%, rgba(5, 4, 3, .40) 100%),
+    linear-gradient(180deg, rgba(4, 3, 2, .24) 0%, rgba(4, 3, 2, .10) 36%, rgba(4, 3, 2, .54) 76%, rgba(4, 3, 2, .86) 100%) !important;
+}
+
+.page-home .premium-home-orb { opacity: .18 !important; }
+
+.page-home .premium-home-content {
+  width: 100% !important;
+  max-width: 1180px !important;
+  margin-inline: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  text-align: left !important;
+}
+
+.page-home .premium-home-kicker {
+  align-self: flex-start !important;
+  margin: 0 0 28px !important;
+  color: rgba(255,255,255,.96) !important;
+  background: rgba(28, 20, 16, .54) !important;
+  border: 1px solid rgba(255,255,255,.16) !important;
+  box-shadow: 0 14px 38px rgba(0,0,0,.26), inset 0 1px 0 rgba(255,255,255,.10) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(135%) !important;
+  backdrop-filter: blur(16px) saturate(135%) !important;
+}
+
+/* Use the same script language as the About page's "Our story" label. */
+.page-home .premium-home-content > h1 {
+  width: auto !important;
+  max-width: 760px !important;
+  margin: 0 0 18px !important;
+  text-align: left !important;
+  color: var(--aurelia-coral, #ef6f3c) !important;
+  font-family: var(--aurelia-script, 'Allura', cursive) !important;
+  font-size: clamp(3.4rem, 5.6vw, 5.8rem) !important;
+  font-weight: 400 !important;
+  line-height: .95 !important;
+  letter-spacing: 0 !important;
+  text-shadow: 0 8px 34px rgba(0,0,0,.34) !important;
+}
+
+.page-home .premium-home-tagline {
+  width: auto !important;
+  max-width: 760px !important;
+  margin: 0 0 22px !important;
+  text-align: left !important;
+  color: #fff !important;
+  font-family: var(--aurelia-display, sans-serif) !important;
+  font-size: clamp(2.4rem, 4.35vw, 4.7rem) !important;
+  font-weight: 700 !important;
+  line-height: .96 !important;
+  letter-spacing: -.035em !important;
+  text-wrap: balance !important;
+  text-shadow: 0 8px 34px rgba(0,0,0,.34) !important;
+}
+
+.page-home .premium-home-description {
+  width: auto !important;
+  max-width: 620px !important;
+  margin: 0 0 32px !important;
+  padding: 0 !important;
+  text-align: left !important;
+  color: rgba(255,255,255,.82) !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  font-size: clamp(1rem, 1.35vw, 1.18rem) !important;
+  line-height: 1.7 !important;
+}
+
+.page-home .premium-home-actions {
+  width: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 14px !important;
+  margin: 0 !important;
+}
+
+.page-home .premium-home-actions .button {
+  min-width: 178px !important;
+  min-height: 52px !important;
+  justify-content: center !important;
+}
+
+@media (min-width: 1025px) {
+  .page-home .premium-home-hero { min-height: calc(100svh - 70px) !important; background-position: center 48% !important; }
+  .page-home .premium-home-content { min-height: calc(100svh - 70px) !important; padding: 64px 0 118px !important; }
+  .page-home .premium-home-kicker { margin-bottom: 22px !important; padding: 8px 16px !important; font-size: clamp(.9rem, 1.25vw, 1.12rem) !important; line-height: 1 !important; border-radius: 999px !important; }
+  .page-home .premium-home-meta { bottom: 26px !important; }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .page-home .premium-home-hero { min-height: 760px !important; background-position: 55% center !important; }
+  .page-home .premium-home-content { padding-top: 84px !important; padding-bottom: 126px !important; }
+  .page-home .premium-home-content > h1 { font-size: clamp(3.4rem, 7vw, 5rem) !important; }
+  .page-home .premium-home-tagline { font-size: clamp(2.5rem, 5.8vw, 4rem) !important; font-weight: 700 !important; }
+}
+
+@media (max-width: 767px) {
+  .page-home .premium-home-hero {
+    min-height: auto !important;
+    padding: 0 !important;
+    background-position: 57% center !important;
+  }
+
+  .page-home .premium-home-shade {
+    background:
+      linear-gradient(180deg, rgba(5,4,3,.62) 0%, rgba(5,4,3,.38) 22%, rgba(5,4,3,.54) 58%, rgba(5,4,3,.88) 100%),
+      linear-gradient(90deg, rgba(5,4,3,.78) 0%, rgba(5,4,3,.46) 78%, rgba(5,4,3,.58) 100%) !important;
+  }
+
+  .page-home .premium-home-content {
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    padding: clamp(96px, 20vw, 118px) clamp(22px, 6vw, 30px) clamp(54px, 11vw, 72px) !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+  }
+
+  .page-home .premium-home-kicker {
+    margin-top: 0 !important;
+    margin-bottom: 24px !important;
+    padding: 10px 15px !important;
+    font-size: clamp(.82rem, 3.2vw, .94rem) !important;
+    line-height: 1.1 !important;
+  }
+
+  .page-home .premium-home-content > h1 {
+    max-width: 100% !important;
+    margin-bottom: 16px !important;
+    font-size: clamp(3.15rem, 13vw, 4.15rem) !important;
+    line-height: .96 !important;
+    text-align: left !important;
+  }
+
+  .page-home .premium-home-tagline {
+    max-width: 92% !important;
+    margin-bottom: 20px !important;
+    font-size: clamp(2.45rem, 10.5vw, 3.55rem) !important;
+    font-weight: 700 !important;
+    line-height: .95 !important;
+    text-align: left !important;
+  }
+
+  .page-home .premium-home-description { max-width: 94% !important; margin-bottom: 28px !important; font-size: clamp(1rem, 4.35vw, 1.12rem) !important; line-height: 1.62 !important; text-align: left !important; }
+  .page-home .premium-home-actions { width: 100% !important; display: grid !important; grid-template-columns: 1fr !important; gap: 11px !important; }
+  .page-home .premium-home-actions .button { width: 100% !important; min-height: 56px !important; margin: 0 !important; }
+  .page-home .premium-home-meta { position: relative !important; inset: auto !important; margin-top: 30px !important; margin-bottom: 26px !important; }
+}
+
+@media (max-width: 390px) {
+  .page-home .premium-home-content {
+    padding-inline: 20px !important;
+    padding-top: 92px !important;
+    padding-bottom: 52px !important;
+  }
+  .page-home .premium-home-content > h1 { font-size: clamp(2.95rem, 12.5vw, 3.8rem) !important; }
+  .page-home .premium-home-tagline { max-width: 100% !important; font-size: clamp(2.25rem, 10vw, 3.2rem) !important; font-weight: 700 !important; }
+  .page-home .premium-home-description { max-width: 100% !important; }
+  .page-home .premium-home-meta { margin-top: 26px !important; margin-bottom: 24px !important; }
+}
