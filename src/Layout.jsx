@@ -6,6 +6,7 @@ import { nav, site } from './data'
 import CinematicFilm from './CinematicFilm'
 import HomeRoyalExtras from './HomeRoyalExtras'
 import ScrollEffects from './ScrollEffects'
+import HomeRestaurantIllustrations from './HomeRestaurantIllustrations'
 
 function Brand({ footer = false }) {
   return (
@@ -71,5 +72,5 @@ export default function Layout() {
   const location = useLocation()
   useEffect(() => { window.scrollTo({ top: 0, left: 0, behavior: 'auto' }) }, [location.pathname])
   const isHome = location.pathname === '/'
-  return <><ScrollEffects/><Header/><main><Outlet/>{isHome && <><CinematicFilm/><HomeRoyalExtras/></>}</main><Footer/><MobileActions/></>
+  return <><ScrollEffects/><Header/><main className={isHome ? 'page-main page-home' : 'page-main'}>{isHome && <HomeRestaurantIllustrations/>}<Outlet/>{isHome && <><CinematicFilm/><HomeRoyalExtras/></>}</main><Footer/><MobileActions/></>
 }
