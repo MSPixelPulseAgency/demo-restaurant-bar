@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
-import { Menu, X, Phone, MapPin, CalendarDays, Instagram, Facebook } from 'lucide-react'
+import { Menu, X, Phone, MapPin, CalendarDays } from 'lucide-react'
 import { nav, site } from './data'
 
 function Header() {
@@ -67,7 +67,10 @@ function Footer() {
         </div>
         <div>
           <p className="footer-label">Follow</p>
-          <div className="socials"><a href="#" aria-label="Instagram"><Instagram size={20}/></a><a href="#" aria-label="Facebook"><Facebook size={20}/></a></div>
+          <div className="socials">
+            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="Facebook">Facebook</a>
+          </div>
           <Link to="/booking" className="text-link">Make a reservation →</Link>
         </div>
       </div>
