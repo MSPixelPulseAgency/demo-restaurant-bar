@@ -2,22 +2,32 @@ import { Route, Routes } from 'react-router-dom'
 import Layout from './Layout'
 import EnhancedMenuPage from './EnhancedMenuPage'
 import EnhancedGalleryPage from './EnhancedGalleryPage'
-import { About, Banquet, Booking, Catering, Contact, Home, MenuKit, NotFound, VisitingHours } from './pages'
+import {
+  PremiumAbout,
+  PremiumBanquet,
+  PremiumBooking,
+  PremiumCatering,
+  PremiumContact,
+  PremiumHome,
+  PremiumMenuKit,
+  PremiumVisitingHours,
+} from './PremiumPages'
+import { NotFound } from './pages'
 
 export default function App() {
   return (
     <Routes>
       <Route element={<Layout/>}>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/about" element={<About/>}/>
+        <Route path="/" element={<PremiumHome/>}/>
+        <Route path="/about" element={<PremiumAbout/>}/>
         <Route path="/menu" element={<EnhancedMenuPage/>}/>
-        <Route path="/banquet" element={<Banquet/>}/>
-        <Route path="/catering" element={<Catering/>}/>
+        <Route path="/banquet" element={<PremiumBanquet/>}/>
+        <Route path="/catering" element={<PremiumCatering/>}/>
         <Route path="/gallery" element={<EnhancedGalleryPage/>}/>
-        <Route path="/visiting-hours" element={<VisitingHours/>}/>
-        <Route path="/booking" element={<Booking/>}/>
-        <Route path="/menu-kit" element={<MenuKit/>}/>
-        <Route path="/contact" element={<Contact/>}/>
+        <Route path="/visiting-hours" element={<PremiumVisitingHours/>}/>
+        <Route path="/booking" element={<PremiumBooking/>}/>
+        <Route path="/menu-kit" element={<PremiumMenuKit/>}/>
+        <Route path="/contact" element={<PremiumContact/>}/>
         <Route path="*" element={<NotFound/>}/>
       </Route>
     </Routes>
