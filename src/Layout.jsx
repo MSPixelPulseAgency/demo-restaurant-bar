@@ -4,6 +4,20 @@ import { Menu, X, Phone, MapPin, CalendarDays } from 'lucide-react'
 import { nav, site } from './data'
 import CinematicFilm from './CinematicFilm'
 
+function Brand({ footer = false }) {
+  return (
+    <Link to="/" className={`brand ${footer ? 'footer-logo' : ''}`} aria-label="Aurelia home">
+      <span className="brand-mark brand-mark-logo" aria-hidden="true">
+        <img src="/aurelia-mark.svg" alt="" />
+      </span>
+      <span className="brand-copy">
+        <strong>{site.name}</strong>
+        <small>Kitchen · Bar · Gatherings</small>
+      </span>
+    </Link>
+  )
+}
+
 function Header() {
   const [open, setOpen] = useState(false)
   const location = useLocation()
@@ -23,10 +37,7 @@ function Header() {
   return (
     <header className="site-header">
       <div className="header-inner shell">
-        <Link to="/" className="brand" aria-label="Aurelia home">
-          <span className="brand-mark">A</span>
-          <span><strong>{site.name}</strong><small>{site.descriptor}</small></span>
-        </Link>
+        <Brand />
 
         <nav className="desktop-nav" aria-label="Primary navigation">
           {nav.map(([label, path]) => (
@@ -36,7 +47,7 @@ function Header() {
 
         <Link className="button button-gold header-cta" to="/booking">Book a Table</Link>
         <button className="menu-toggle" type="button" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} onClick={() => setOpen(!open)}>
-          {open ? <X size={24}/> : <Menu size={24}/>} 
+          {open ? <X size={27}/> : <Menu size={29}/>} 
         </button>
       </div>
 
@@ -59,7 +70,7 @@ function Footer() {
     <footer className="site-footer">
       <div className="shell footer-grid">
         <div className="footer-brand">
-          <div className="brand footer-logo"><span className="brand-mark">A</span><span><strong>{site.name}</strong><small>{site.descriptor}</small></span></div>
+          <Brand footer />
           <p>A modern dining room and late-night bar designed around food, conversation, and memorable occasions.</p>
         </div>
         <div>
