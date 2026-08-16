@@ -47,15 +47,33 @@ export const menu = {
     ['Grilled Octopus', 'White bean purée, smoked paprika, lemon', '$23'],
     ['Whipped Feta', 'Hot honey, toasted pistachio, warm flatbread', '$15'],
   ],
-  Mains: [
+  'Raw Bar': [
+    ['East Coast Oysters', 'Mignonette, lemon, house hot sauce', '$24'],
+    ['Yellowfin Tuna Tartare', 'Avocado, sesame, crispy shallot', '$22'],
+    ['Salmon Crudo', 'Blood orange, fennel, chili oil', '$20'],
+    ['Shrimp Cocktail', 'Poached jumbo shrimp, horseradish cocktail sauce', '$21'],
+    ['Hamachi', 'Jalapeño, ponzu, cilantro oil', '$23'],
+    ['Seafood Tower', 'Oysters, shrimp, mussels, lobster, crudo', '$78'],
+  ],
+  Pasta: [
     ['Wild Mushroom Pappardelle', 'Parmesan, thyme, brown butter', '$29'],
+    ['Short Rib Tagliatelle', 'Red wine braise, rosemary, pecorino', '$34'],
+    ['Ricotta Gnocchi', 'Brown butter, sage, roasted squash', '$30'],
+    ['Spicy Rigatoni', 'Tomato, chili, vodka cream, parmesan', '$28'],
+    ['Lobster Ravioli', 'Shellfish bisque, chive, lemon', '$38'],
+    ['Cacio e Pepe', 'Pecorino romano, cracked pepper, butter', '$27'],
+    ['Truffle Tagliolini', 'Black truffle, parmesan, cultured butter', '$39'],
+    ['Seafood Linguine', 'Prawn, mussel, tomato, chili, white wine', '$36'],
+  ],
+  Mains: [
     ['Herb Roasted Chicken', 'Fingerling potato, jus, seasonal greens', '$32'],
     ['Pan-Seared Branzino', 'Fennel, citrus, caper beurre blanc', '$38'],
-    ['Short Rib Tagliatelle', 'Red wine braise, rosemary, pecorino', '$34'],
     ['Duck Breast', 'Parsnip, cherry gastrique, glazed endive', '$39'],
     ['Lobster Risotto', 'Saffron, mascarpone, chive, lemon', '$42'],
     ['Eggplant Milanese', 'Tomato fondue, basil, burrata', '$27'],
-    ['Ricotta Gnocchi', 'Brown butter, sage, roasted squash', '$30'],
+    ['Braised Lamb Shoulder', 'Polenta, gremolata, natural jus', '$41'],
+    ['Cauliflower Steak', 'Tahini, preserved lemon, herbs, almond', '$28'],
+    ['Pork Chop', 'Apple mostarda, charred cabbage, cider jus', '$37'],
   ],
   'Steak & Seafood': [
     ['Prime Striploin', 'Truffle fries, peppercorn jus', '$46'],
@@ -66,6 +84,14 @@ export const menu = {
     ['Chili-Lime Prawns', 'Coconut rice, charred corn, herb salad', '$37'],
     ['Miso Black Cod', 'Bok choy, sesame, ginger broth', '$44'],
     ['Whole Roasted Branzino', 'Lemon, herbs, crispy potato, olive', '$49'],
+  ],
+  'Bar Bites': [
+    ['Aurelia Burger', 'Dry-aged beef, smoked cheddar, onion jam, fries', '$24'],
+    ['Steak Tartare Toast', 'Capers, shallot, mustard, sourdough', '$19'],
+    ['Crispy Chicken Sliders', 'Hot honey, pickle, herb mayo', '$18'],
+    ['Truffle Grilled Cheese', 'Fontina, gruyère, truffle, tomato jam', '$17'],
+    ['Spiced Nuts', 'Rosemary, chili, brown sugar', '$9'],
+    ['Marinated Olives', 'Citrus, herbs, chili', '$8'],
   ],
   Sides: [
     ['Truffle Fries', 'Parmesan, rosemary, garlic aioli', '$12'],
@@ -107,6 +133,14 @@ export const menu = {
     ['Malbec', 'Plum, violet, dark chocolate', '$15 / $62'],
     ['Rosé', 'Watermelon, citrus blossom, dry finish', '$14 / $54'],
   ],
+  'After Dinner': [
+    ['Espresso', 'Double shot, rich crema', '$5'],
+    ['Cappuccino', 'Espresso, steamed milk, foam', '$7'],
+    ['Affogato', 'Vanilla gelato, espresso', '$9'],
+    ['Amaro Flight', 'Three rotating Italian digestifs', '$18'],
+    ['Single Malt Pour', 'Rotating premium whisky selection', '$20'],
+    ['Cognac', 'VSOP, warm spice, dried fruit', '$18'],
+  ],
 }
 
 export const hours = [
@@ -121,7 +155,4 @@ export const testimonials = [
   ['“Elegant without feeling formal. Every plate felt considered.”', 'Morgan K.'],
 ]
 
-export const gallery = [
-  images.interior, images.food, images.bar, images.pasta, images.banquet,
-  images.cocktail, images.steak, images.table, images.dessert,
-]
+export const gallery = [images.interior, images.food, images.bar, images.pasta, images.banquet, images.cocktail, images.steak, images.table, images.dessert]
