@@ -1,13 +1,17 @@
 /* Final Home hero refinement.
-   Desktop/tablet: use a quieter, more minimal fine-dining image and remove excess visual space below the header.
-   Mobile spacing is intentionally left to the existing mobile-specific layers. */
+   All devices: use the same quieter premium fine-dining image with device-specific focal positioning.
+   Desktop/tablet: also remove excess visual space below the header. */
+
+.page-home .premium-home-hero {
+  --home-image: url('https://images.unsplash.com/photo-1760662435569-84a4fb1fa407?auto=format&fit=crop&w=2400&q=88') !important;
+  background-image: var(--home-image) !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
 
 @media (min-width: 768px) {
   .page-home .premium-home-hero {
-    --home-image: url('https://images.unsplash.com/photo-1760662435569-84a4fb1fa407?auto=format&fit=crop&w=2400&q=88') !important;
-    background-image: var(--home-image) !important;
     background-position: center 58% !important;
-    background-size: cover !important;
     margin-top: 0 !important;
     padding-top: 0 !important;
   }
@@ -21,6 +25,25 @@
   .page-home .premium-home-content {
     padding-top: clamp(28px, 4.5vh, 54px) !important;
     padding-bottom: clamp(24px, 4vh, 48px) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Portrait phones need a different crop of the same hero rather than the old mobile image. */
+  .page-home .premium-home-hero {
+    background-position: 53% center !important;
+  }
+
+  .page-home .premium-home-shade {
+    background:
+      linear-gradient(180deg, rgba(5, 4, 3, .48) 0%, rgba(5, 4, 3, .28) 24%, rgba(5, 4, 3, .46) 58%, rgba(5, 4, 3, .86) 100%),
+      radial-gradient(circle at 50% 40%, rgba(10, 7, 5, .05), rgba(5, 4, 3, .52) 78%) !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .page-home .premium-home-hero {
+    background-position: 55% center !important;
   }
 }
 
