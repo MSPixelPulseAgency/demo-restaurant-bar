@@ -4,6 +4,7 @@ import { Menu, X, Phone, MapPin, CalendarDays } from 'lucide-react'
 import { FaFacebookF, FaInstagram, FaPinterestP, FaYelp } from 'react-icons/fa'
 import { nav, site } from './data'
 import CinematicFilm from './CinematicFilm'
+import ScrollEffects from './ScrollEffects'
 
 function Brand({ footer = false }) {
   return (
@@ -29,7 +30,6 @@ function Header() {
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
-
     return () => {
       document.body.style.overflow = ''
     }
@@ -39,19 +39,16 @@ function Header() {
     <header className="site-header">
       <div className="header-inner shell">
         <Brand />
-
         <nav className="desktop-nav" aria-label="Primary navigation">
           {nav.map(([label, path]) => (
             <NavLink key={path} to={path} className={({ isActive }) => isActive ? 'active' : ''}>{label}</NavLink>
           ))}
         </nav>
-
         <Link className="button button-gold header-cta" to="/booking">Book a Table</Link>
         <button className="menu-toggle" type="button" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} onClick={() => setOpen(!open)}>
           {open ? <X size={27}/> : <Menu size={29}/>} 
         </button>
       </div>
-
       <div className={`mobile-panel ${open ? 'open' : ''}`} aria-hidden={!open}>
         <nav aria-label="Mobile navigation">
           {nav.map(([label, path]) => <NavLink key={path} to={path}>{label}</NavLink>)}
@@ -127,5 +124,5 @@ export default function Layout() {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
   }, [location.pathname])
 
-  return <><Header/><main><Outlet/>{location.pathname === '/' && <CinematicFilm />}</main><Footer/><MobileActions/></>
+  return <><ScrollEffects/><Header/><main><Outlet/>{location.pathname === '/' && <CinematicFilm />}</main><Footer/><MobileActions/></>
 }
