@@ -31,6 +31,7 @@ import './mobile-production-fixes.css'
 import './mobile-final-hardening.css'
 import './home-mobile-final.css'
 import './desktop-final-polish.css'
+import './mobile-compact-final.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
