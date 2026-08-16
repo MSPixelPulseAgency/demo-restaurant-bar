@@ -8,6 +8,7 @@ import './brand.css'
 import './restaurant-polish.css'
 import './gallery-enhanced.css'
 import './premium-pages.css'
+import './liquid-glass.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
