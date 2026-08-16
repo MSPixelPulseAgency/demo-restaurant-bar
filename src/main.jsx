@@ -25,6 +25,7 @@ import './menu-drinks-polish.css'
 import './menu-spacing-repair.css'
 import './menukit-downloads.css'
 import './menu-navigation-repair.css'
+import './responsive-final-qa.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
