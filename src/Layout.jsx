@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { Menu, X, Phone, MapPin, CalendarDays } from 'lucide-react'
+import { FaFacebookF, FaInstagram, FaPinterestP, FaYelp } from 'react-icons/fa'
 import { nav, site } from './data'
 import CinematicFilm from './CinematicFilm'
 
@@ -65,9 +66,18 @@ function Header() {
   )
 }
 
+const socials = [
+  ['Instagram', FaInstagram],
+  ['Facebook', FaFacebookF],
+  ['Pinterest', FaPinterestP],
+  ['Yelp', FaYelp],
+]
+
 function Footer() {
   return (
     <footer className="site-footer">
+      <div className="footer-sketch footer-sketch-left" aria-hidden="true" />
+      <div className="footer-sketch footer-sketch-right" aria-hidden="true" />
       <div className="shell footer-grid">
         <div className="footer-brand">
           <Brand footer />
@@ -85,9 +95,12 @@ function Footer() {
         </div>
         <div>
           <p className="footer-label">Follow</p>
-          <div className="socials">
-            <a href="#" aria-label="Instagram">Instagram</a>
-            <a href="#" aria-label="Facebook">Facebook</a>
+          <div className="socials social-icon-row">
+            {socials.map(([label, Icon]) => (
+              <a key={label} href="#" className="social-icon" aria-label={`${label} demo link`} title={label}>
+                <Icon aria-hidden="true" />
+              </a>
+            ))}
           </div>
           <Link to="/booking" className="text-link">Make a reservation →</Link>
         </div>
