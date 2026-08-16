@@ -35,6 +35,7 @@ import './mobile-compact-final.css'
 import './header-scrolltop-final.css'
 import './home-mobile-centered-hero.css'
 import './mobile-image-safety-final.css'
+import './mobile-alignment-final.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
