@@ -29,6 +29,7 @@ import './responsive-final-qa.css'
 import './menu-kit-hero-ux.css'
 import './mobile-production-fixes.css'
 import './mobile-final-hardening.css'
+import './home-mobile-final.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
