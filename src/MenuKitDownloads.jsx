@@ -28,14 +28,14 @@ const resources = [
 export default function MenuKitDownloads() {
   return (
     <>
-      <section className="premium-hero premium-hero-compact menukit-premium-hero" style={{ '--premium-hero-image': `url(${images.food})` }}>
+      <section className="premium-hero premium-hero-compact menukit-premium-hero" style={{ '--premium-hero-image': `url(${images.table})` }}>
         <div className="premium-hero-overlay" />
         <div className="premium-hero-glow" />
         <div className="shell premium-hero-inner">
           <div className="premium-hero-copy glass-dark">
             <p className="eyebrow light">Menu kit</p>
             <h1>Menus ready to share.</h1>
-            <p className="premium-hero-text">Download polished, illustrated Aurelia PDFs for dining, private events and catering. Each document is built to match the restaurant website and can later be replaced with William&apos;s final approved content.</p>
+            <p className="premium-hero-text">Download polished, illustrated Aurelia PDFs for dining, private events and catering. Each document is styled to match the website and can later be replaced with the restaurant&apos;s final approved content.</p>
           </div>
         </div>
       </section>
@@ -47,7 +47,7 @@ export default function MenuKitDownloads() {
               <p className="eyebrow">Aurelia resources</p>
               <h2>Choose a menu.</h2>
             </div>
-            <p>These are real downloadable menu PDFs with restaurant photography, editorial typography, warm Aurelia colors and subtle culinary illustrations.</p>
+            <p>Real downloadable menu PDFs with restaurant photography, editorial typography, warm Aurelia colors and subtle culinary illustrations.</p>
           </div>
 
           <div className="menukit-grid">
