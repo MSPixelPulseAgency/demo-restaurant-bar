@@ -17,6 +17,7 @@ import './bar-effects.css'
 import './royal-blog.css'
 import './home-iconify-illustrations.css'
 import './final-home-luxury.css'
+import './mobile-qa.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
