@@ -28,13 +28,14 @@ const resources = [
 export default function MenuKitDownloads() {
   return (
     <>
-      <section className="menukit-hero" style={{ '--menukit-bg': `url(${images.table})` }}>
-        <div className="menukit-hero-shade" />
-        <div className="shell menukit-hero-inner">
-          <div className="menukit-hero-copy glass-dark">
+      <section className="premium-hero premium-hero-compact menukit-premium-hero" style={{ '--premium-hero-image': `url(${images.food})` }}>
+        <div className="premium-hero-overlay" />
+        <div className="premium-hero-glow" />
+        <div className="shell premium-hero-inner">
+          <div className="premium-hero-copy glass-dark">
             <p className="eyebrow light">Menu kit</p>
             <h1>Menus ready to share.</h1>
-            <p>Download polished, illustrated Aurelia PDFs for dining, private events and catering. Each document is built to match the restaurant website and can later be replaced with William&apos;s final approved content.</p>
+            <p className="premium-hero-text">Download polished, illustrated Aurelia PDFs for dining, private events and catering. Each document is built to match the restaurant website and can later be replaced with William&apos;s final approved content.</p>
           </div>
         </div>
       </section>
