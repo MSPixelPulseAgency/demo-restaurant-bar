@@ -7,10 +7,16 @@ function Header() {
   const [open, setOpen] = useState(false)
   const location = useLocation()
 
-  useEffect(() => setOpen(false), [location.pathname])
+  useEffect(() => {
+    setOpen(false)
+  }, [location.pathname])
+
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
+
+    return () => {
+      document.body.style.overflow = ''
+    }
   }, [open])
 
   return (
@@ -91,6 +97,10 @@ function MobileActions() {
 
 export default function Layout() {
   const location = useLocation()
-  useEffect(() => window.scrollTo({ top: 0, behavior: 'instant' }), [location.pathname])
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+  }, [location.pathname])
+
   return <><Header/><main><Outlet/></main><Footer/><MobileActions/></>
 }
