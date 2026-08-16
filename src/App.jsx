@@ -3,6 +3,7 @@ import Layout from './Layout'
 import EnhancedMenuPage from './EnhancedMenuPage'
 import EnhancedGalleryPage from './EnhancedGalleryPage'
 import EnhancedAboutPage from './EnhancedAboutPage'
+import { BlogPage, BlogPostPage } from './BlogPages'
 import {
   PremiumBanquet,
   PremiumBooking,
@@ -26,6 +27,8 @@ export default function App() {
         <Route path="/gallery" element={<EnhancedGalleryPage/>}/>
         <Route path="/visiting-hours" element={<PremiumVisitingHours/>}/>
         <Route path="/booking" element={<PremiumBooking/>}/>
+        <Route path="/blog" element={<BlogPage/>}/>
+        <Route path="/blog/:slug" element={<BlogPostPage/>}/>
         <Route path="/menu-kit" element={<PremiumMenuKit/>}/>
         <Route path="/contact" element={<PremiumContact/>}/>
         <Route path="*" element={<NotFound/>}/>
