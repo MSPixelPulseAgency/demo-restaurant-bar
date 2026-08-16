@@ -1,5 +1,5 @@
 /* Final mobile-only safeguard for the Home hero service strip.
-   Keep all three items in one horizontal row on every phone width. */
+   Keep all three items in one horizontal row and give the strip a premium glass finish. */
 
 @media (max-width: 767px) {
   .page-home .premium-home-meta {
@@ -7,20 +7,46 @@
     flex-flow: row nowrap !important;
     align-items: stretch !important;
     justify-content: stretch !important;
-    width: min(calc(100% - 24px), 620px) !important;
+    width: min(calc(100% - 32px), 620px) !important;
     min-width: 0 !important;
     height: auto !important;
-    min-height: 82px !important;
+    min-height: 94px !important;
+    margin: 30px auto 18px !important;
     padding: 0 !important;
     gap: 0 !important;
     overflow: hidden !important;
+    position: relative !important;
+    isolation: isolate !important;
+    border: 1px solid rgba(255, 235, 198, .16) !important;
+    border-radius: 25px !important;
+    background:
+      linear-gradient(135deg, rgba(63, 39, 27, .72), rgba(20, 13, 11, .72) 48%, rgba(55, 32, 22, .66)) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(145%) !important;
+    backdrop-filter: blur(20px) saturate(145%) !important;
+    box-shadow:
+      0 18px 38px rgba(0, 0, 0, .34),
+      0 4px 12px rgba(0, 0, 0, .18),
+      inset 0 1px 0 rgba(255, 244, 220, .16),
+      inset 0 -1px 0 rgba(255, 255, 255, .025) !important;
+  }
+
+  /* Soft champagne reflection across the glass, without creating another visible box. */
+  .page-home .premium-home-meta::before {
+    content: "" !important;
+    position: absolute !important;
+    z-index: -1 !important;
+    inset: 0 !important;
+    pointer-events: none !important;
+    background:
+      radial-gradient(circle at 22% 0%, rgba(244, 203, 132, .16), transparent 35%),
+      linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, .055) 45%, transparent 66%) !important;
   }
 
   .page-home .premium-home-meta > span,
   .page-home .premium-home-meta > span:nth-child(1),
   .page-home .premium-home-meta > span:nth-child(2),
   .page-home .premium-home-meta > span:nth-child(3) {
-    position: static !important;
+    position: relative !important;
     inset: auto !important;
     order: 0 !important;
     grid-column: auto !important;
@@ -29,46 +55,55 @@
     width: 33.333% !important;
     max-width: 33.333% !important;
     min-width: 0 !important;
-    min-height: 82px !important;
+    min-height: 94px !important;
     margin: 0 !important;
-    padding: 12px 3px !important;
+    padding: 15px 3px 14px !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 7px !important;
+    gap: 8px !important;
     text-align: center !important;
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: clip !important;
-    font-size: clamp(.46rem, 2.45vw, .68rem) !important;
+    font-size: clamp(.48rem, 2.5vw, .7rem) !important;
     line-height: 1.05 !important;
-    letter-spacing: 0 !important;
+    letter-spacing: .005em !important;
+    color: rgba(255, 248, 236, .94) !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
   }
 
   .page-home .premium-home-meta > span svg {
     flex: 0 0 auto !important;
-    width: clamp(20px, 5.2vw, 24px) !important;
-    height: clamp(20px, 5.2vw, 24px) !important;
+    width: clamp(22px, 5.6vw, 27px) !important;
+    height: clamp(22px, 5.6vw, 27px) !important;
     margin: 0 auto !important;
+    color: #e8c37e !important;
+    filter: drop-shadow(0 2px 7px rgba(226, 180, 97, .22)) !important;
   }
 
-  /* Only subtle separators between items; no boxed child layout. */
+  /* Fine separators only — keeps the three choices visually distinct without boxed tabs. */
   .page-home .premium-home-meta > span + span {
-    border-left: 1px solid rgba(216, 185, 130, .14) !important;
+    border-left: 1px solid rgba(232, 195, 126, .16) !important;
   }
 }
 
 @media (max-width: 359px) {
   .page-home .premium-home-meta {
-    width: calc(100% - 16px) !important;
+    width: calc(100% - 20px) !important;
+    margin-top: 26px !important;
+    min-height: 88px !important;
   }
 
   .page-home .premium-home-meta > span,
   .page-home .premium-home-meta > span:nth-child(1),
   .page-home .premium-home-meta > span:nth-child(2),
   .page-home .premium-home-meta > span:nth-child(3) {
+    min-height: 88px !important;
     padding-inline: 1px !important;
-    font-size: .43rem !important;
+    font-size: .44rem !important;
   }
 }
