@@ -5,21 +5,25 @@ Act as a senior hospitality product designer.
 ## Priorities
 - Cinematic, premium, editorial restaurant presentation.
 - Strong visual hierarchy with serif display type and restrained sans-serif UI.
-- Warm cream, charcoal, bronze/gold contrast.
+- Warm cream, charcoal/espresso, bronze/champagne and restrained burgundy.
 - Use imagery to tell the story before adding copy.
-- Keep reservation, menu, hours, directions, banquet, and catering actions obvious.
-- Mobile is designed independently, not scaled down.
+- Keep reservation, menu, hours, directions, banquet and catering actions obvious.
+- Mobile is a deliberate layout, not a shrunk desktop.
 
-## Visual rules
-- Prefer large media, asymmetric editorial compositions, strong negative space, and intentional rhythm.
-- Use glass/blur only for functional overlays such as navigation or media controls.
-- Use motion to create polish, never distraction.
-- Avoid excessive cards, rounded SaaS UI, neon gradients, or decorative clutter.
-- Maintain clear hover, focus, active, and selected states.
+## Locked release language
+- Selective Apple-like liquid glass is reserved for navigation, quick actions, service strip and functional overlays.
+- Avoid oversized empty mobile sections.
+- Avoid excessive cards, giant boxed footer sections and decorative borders with no UX purpose.
+- Desktop header should feel minimal: one compact band, balanced vertical alignment, no extra bottom rule/dead space.
+- Mobile header should feel spacious enough to breathe but remain compact.
+- Footer is center aligned on phones; Explore is a compact 2-column navigation group without a large enclosing card.
+- Important photo subjects must remain visible; illustrations must never sit over faces.
+- Home hero service strip remains one horizontal row on phone widths.
 
 ## Hospitality UX checks
-- Reservation CTA should be reachable quickly.
-- Menu prices and categories should be easy to scan.
-- Hours and location should require minimal reading.
-- Banquet/catering pages should communicate event value visually.
-- Gallery should feel curated rather than like a stock-photo dump.
+- Reservation CTA is reachable quickly.
+- Menu prices/categories are easy to scan.
+- Hours/location require minimal reading.
+- Banquet/catering communicate event value visually.
+- Gallery feels curated rather than like a stock-photo dump.
+- Fixed mobile actions never obscure the active content.
