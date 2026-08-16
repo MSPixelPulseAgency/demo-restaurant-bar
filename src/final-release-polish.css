@@ -1,0 +1,136 @@
+/* Aurelia final release polish — intentionally narrow in scope.
+   Desktop: remove excess header depth.
+   Mobile: simplify footer Explore navigation and keep all footer content centered. */
+
+@media (min-width: 1025px) {
+  .site-header {
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: 76px !important;
+    height: 76px !important;
+    display: block !important;
+    border: 0 !important;
+    background: linear-gradient(180deg, rgba(12, 9, 7, .97), rgba(14, 10, 8, .94)) !important;
+    box-shadow: 0 8px 26px rgba(0, 0, 0, .10) !important;
+  }
+
+  .site-header .header-inner.shell,
+  .site-header .shell.header-inner {
+    width: min(100% - 64px, 1240px) !important;
+    height: 76px !important;
+    min-height: 76px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    display: grid !important;
+    grid-template-columns: auto 1fr auto !important;
+    align-items: center !important;
+    column-gap: 34px !important;
+    border: 0 !important;
+  }
+
+  .site-header .brand {
+    align-self: center !important;
+    margin: 0 !important;
+  }
+
+  .site-header .desktop-nav {
+    align-self: stretch !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: clamp(17px, 1.55vw, 25px) !important;
+  }
+
+  .site-header .desktop-nav a {
+    min-height: 76px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .site-header .header-cta {
+    align-self: center !important;
+    margin: 0 !important;
+  }
+
+  .site-header::before,
+  .site-header::after,
+  .site-header .header-inner::before,
+  .site-header .header-inner::after {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .site-footer {
+    padding-top: 28px !important;
+    padding-bottom: calc(var(--mobile-actions-h, 66px) + 24px) !important;
+  }
+
+  .site-footer .footer-grid {
+    gap: 12px !important;
+  }
+
+  /* Footer sections should feel like one coherent footer, not four oversized cards. */
+  .site-footer .footer-grid > div {
+    max-width: 420px !important;
+    margin-inline: auto !important;
+  }
+
+  /* Explore: remove the large outer rectangle visible on phone layouts. */
+  .site-footer .footer-grid > div:nth-child(2) {
+    padding: 12px 4px 8px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .site-footer .footer-grid > div:nth-child(2) .footer-label {
+    margin-bottom: 14px !important;
+    font-size: clamp(1.55rem, 6.6vw, 1.85rem) !important;
+  }
+
+  .site-footer .footer-links {
+    width: min(100%, 360px) !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    margin: 0 auto !important;
+  }
+
+  .site-footer .footer-links a {
+    width: 100% !important;
+    min-height: 42px !important;
+    padding: 8px 12px !important;
+    border-radius: 999px !important;
+    border: 1px solid rgba(232, 195, 126, .12) !important;
+    background: linear-gradient(145deg, rgba(255,255,255,.035), rgba(255,255,255,.012)) !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.035) !important;
+    font-size: .86rem !important;
+    line-height: 1 !important;
+  }
+
+  .site-footer .footer-links a:last-child:nth-child(odd) {
+    grid-column: 1 / -1 !important;
+    width: calc(50% - 4px) !important;
+    justify-self: center !important;
+  }
+
+  /* Keep the remaining footer blocks centered but visually lighter. */
+  .site-footer .footer-grid > div:nth-child(3),
+  .site-footer .footer-grid > div:nth-child(4) {
+    padding: 16px 12px !important;
+    border-color: rgba(255,255,255,.055) !important;
+    background: rgba(255,255,255,.018) !important;
+    box-shadow: none !important;
+  }
+
+  .site-footer .footer-bottom {
+    max-width: 420px !important;
+    margin-inline: auto !important;
+  }
+}
