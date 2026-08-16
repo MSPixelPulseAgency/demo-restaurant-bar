@@ -1,0 +1,74 @@
+/* Final mobile-only safeguard for the Home hero service strip.
+   Keep all three items in one horizontal row on every phone width. */
+
+@media (max-width: 767px) {
+  .page-home .premium-home-meta {
+    display: flex !important;
+    flex-flow: row nowrap !important;
+    align-items: stretch !important;
+    justify-content: stretch !important;
+    width: min(calc(100% - 24px), 620px) !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 82px !important;
+    padding: 0 !important;
+    gap: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .page-home .premium-home-meta > span,
+  .page-home .premium-home-meta > span:nth-child(1),
+  .page-home .premium-home-meta > span:nth-child(2),
+  .page-home .premium-home-meta > span:nth-child(3) {
+    position: static !important;
+    inset: auto !important;
+    order: 0 !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
+    flex: 1 1 33.333% !important;
+    width: 33.333% !important;
+    max-width: 33.333% !important;
+    min-width: 0 !important;
+    min-height: 82px !important;
+    margin: 0 !important;
+    padding: 12px 3px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: clip !important;
+    font-size: clamp(.46rem, 2.45vw, .68rem) !important;
+    line-height: 1.05 !important;
+    letter-spacing: 0 !important;
+  }
+
+  .page-home .premium-home-meta > span svg {
+    flex: 0 0 auto !important;
+    width: clamp(20px, 5.2vw, 24px) !important;
+    height: clamp(20px, 5.2vw, 24px) !important;
+    margin: 0 auto !important;
+  }
+
+  /* Only subtle separators between items; no boxed child layout. */
+  .page-home .premium-home-meta > span + span {
+    border-left: 1px solid rgba(216, 185, 130, .14) !important;
+  }
+}
+
+@media (max-width: 359px) {
+  .page-home .premium-home-meta {
+    width: calc(100% - 16px) !important;
+  }
+
+  .page-home .premium-home-meta > span,
+  .page-home .premium-home-meta > span:nth-child(1),
+  .page-home .premium-home-meta > span:nth-child(2),
+  .page-home .premium-home-meta > span:nth-child(3) {
+    padding-inline: 1px !important;
+    font-size: .43rem !important;
+  }
+}
