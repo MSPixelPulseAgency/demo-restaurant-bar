@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { Menu, X, Phone, MapPin, CalendarDays } from 'lucide-react'
 import { nav, site } from './data'
+import CinematicFilm from './CinematicFilm'
 
 function Header() {
   const [open, setOpen] = useState(false)
@@ -102,5 +103,5 @@ export default function Layout() {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
   }, [location.pathname])
 
-  return <><Header/><main><Outlet/></main><Footer/><MobileActions/></>
+  return <><Header/><main><Outlet/>{location.pathname === '/' && <CinematicFilm />}</main><Footer/><MobileActions/></>
 }
