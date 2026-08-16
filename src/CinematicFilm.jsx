@@ -5,37 +5,21 @@ const filmSource = 'https://videos.pexels.com/video-files/5705978/5705978-hd_192
 const filmPoster = 'https://images.unsplash.com/photo-1516211697506-8360dbcfe9a4?auto=format&fit=crop&w=2000&q=86'
 
 const cocktails = [
-  {
-    name: 'Golden Hour',
-    note: 'Bourbon · apricot · citrus',
-    image: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=1200&q=88',
-  },
-  {
-    name: 'Velvet Night',
-    note: 'Gin · blackberry · rosemary',
-    image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=1200&q=88',
-  },
-  {
-    name: 'Aurelia Spritz',
-    note: 'Bitter orange · bubbles · herbs',
-    image: 'https://images.unsplash.com/photo-1551538827-9c037cb4f32a?auto=format&fit=crop&w=1200&q=88',
-  },
+  { name: 'Golden Hour', note: 'Bourbon · apricot · citrus', image: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=1200&q=88' },
+  { name: 'Velvet Night', note: 'Gin · blackberry · rosemary', image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=1200&q=88' },
+  { name: 'Aurelia Spritz', note: 'Bitter orange · bubbles · herbs', image: 'https://images.unsplash.com/photo-1551538827-9c037cb4f32a?auto=format&fit=crop&w=1200&q=88' },
 ]
 
 const marqueeItems = ['DINING', 'COCKTAILS', 'PRIVATE EVENTS', 'CATERING', 'LATE-NIGHT BAR']
 
 function MarqueeGroup() {
-  return (
-    <div className="cinematic-marquee-group">
-      {marqueeItems.map((item) => <span key={item}>{item}<i>•</i></span>)}
-    </div>
-  )
+  return <div className="cinematic-marquee-group">{marqueeItems.map((item) => <span key={item}>{item}<i>•</i></span>)}</div>
 }
 
 export default function CinematicFilm() {
   return (
     <>
-      <section className="cinematic-film" aria-labelledby="cinematic-film-title">
+      <section className="cinematic-film cinematic-film-full" aria-labelledby="cinematic-film-title">
         <div className="cinematic-film-media" aria-hidden="true">
           <video autoPlay muted loop playsInline preload="metadata" poster={filmPoster}>
             <source src={filmSource} type="video/mp4" />
@@ -45,22 +29,20 @@ export default function CinematicFilm() {
           <div className="cinematic-glow cinematic-glow-two" />
         </div>
 
-        <div className="shell cinematic-film-content">
+        <div className="shell cinematic-film-content cinematic-film-content-centered">
           <div className="cinematic-film-kicker"><Play size={15} fill="currentColor" /> The Aurelia experience</div>
           <h2 id="cinematic-film-title">Dinner becomes the beginning of the evening.</h2>
-          <p>A cinematic glimpse of warm light, composed details, private moments and a bar that carries the night forward.</p>
+          <p>A full-screen glimpse of warm light, composed details, private moments and a bar that carries the night forward.</p>
           <div className="cinematic-film-actions">
             <Link to="/booking" className="button button-cream">Reserve a Table</Link>
             <Link to="/gallery" className="cinematic-text-link">Explore the atmosphere <ArrowRight size={18} /></Link>
           </div>
         </div>
+      </section>
 
-        <div className="cinematic-marquee" aria-hidden="true">
-          <div className="cinematic-marquee-track">
-            <MarqueeGroup />
-            <MarqueeGroup />
-            <MarqueeGroup />
-          </div>
+      <section className="cinematic-marquee cinematic-marquee-standalone" aria-label="Aurelia experiences">
+        <div className="cinematic-marquee-track">
+          <MarqueeGroup /><MarqueeGroup /><MarqueeGroup /><MarqueeGroup />
         </div>
       </section>
 
@@ -83,11 +65,7 @@ export default function CinematicFilm() {
               <article className={`bar-cocktail-card card-${index + 1}`} key={drink.name}>
                 <img src={drink.image} alt={drink.name} loading="lazy" decoding="async" />
                 <div className="bar-cocktail-shine" aria-hidden="true" />
-                <div className="bar-cocktail-copy">
-                  <span>0{index + 1}</span>
-                  <h3>{drink.name}</h3>
-                  <p>{drink.note}</p>
-                </div>
+                <div className="bar-cocktail-copy"><span>0{index + 1}</span><h3>{drink.name}</h3><p>{drink.note}</p></div>
               </article>
             ))}
           </div>
