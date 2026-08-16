@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { Icon } from '@iconify/react'
 import { ArrowRight, ChefHat, Flame, Heart, Leaf, Sparkles, Wine } from 'lucide-react'
 import { images, site } from './data'
 
@@ -10,6 +11,14 @@ const aboutImages = {
   wine: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1500&q=88',
   dining: 'https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1700&q=88',
 }
+
+const illustrationIcons = [
+  ['mdi:silverware-fork-knife', 'Dining'],
+  ['mdi:chef-hat', 'Kitchen'],
+  ['mdi:glass-cocktail', 'Cocktails'],
+  ['mdi:food-variant', 'Seasonal plates'],
+  ['mdi:glass-wine', 'Wine'],
+]
 
 export default function EnhancedAboutPage() {
   useEffect(() => {
@@ -32,6 +41,17 @@ export default function EnhancedAboutPage() {
             <Link to="/booking" className="button button-gold">Reserve a Table</Link>
             <Link to="/menu" className="button button-outline-light">Explore the Menu</Link>
           </div>
+        </div>
+      </section>
+
+      <section className="about-illustration-rail" aria-label="Aurelia restaurant experience">
+        <div className="shell about-illustration-grid">
+          {illustrationIcons.map(([name, label]) => (
+            <div key={name} className="about-illustration-item" data-reveal>
+              <Icon icon={name} aria-hidden="true" />
+              <span>{label}</span>
+            </div>
+          ))}
         </div>
       </section>
 
