@@ -4,24 +4,24 @@ import { images } from './data'
 const resources = [
   {
     title: 'Dining & Bar Menu',
-    text: 'Seasonal dining, signature cocktails and selected bar favourites.',
+    text: 'A four-page illustrated menu with seasonal dining, signature cocktails, cellar selections and restaurant details.',
     image: images.food,
     href: '/menus/aurelia-dining-menu.pdf',
-    meta: '3-page PDF',
+    meta: '4-page illustrated PDF',
   },
   {
     title: 'Private Events Menu',
-    text: 'Sample seated dinner, canape and beverage packages for private events.',
+    text: 'An image-rich private-events guide with sample formats, cocktail reception ideas and planning notes.',
     image: images.banquet,
     href: '/menus/aurelia-private-events-menu.pdf',
-    meta: '2-page PDF',
+    meta: '3-page illustrated PDF',
   },
   {
     title: 'Catering Menu',
-    text: 'Sample grazing, buffet, dessert and service options for off-site catering.',
+    text: 'A styled catering guide with service formats, sample packages, selections and hospitality notes.',
     image: images.catering,
     href: '/menus/aurelia-catering-menu.pdf',
-    meta: '2-page PDF',
+    meta: '3-page illustrated PDF',
   },
 ]
 
@@ -34,7 +34,7 @@ export default function MenuKitDownloads() {
           <div className="menukit-hero-copy glass-dark">
             <p className="eyebrow light">Menu kit</p>
             <h1>Menus ready to share.</h1>
-            <p>Download polished demo PDFs for dining, private events and catering. Every file can be replaced with William's final approved menus before launch.</p>
+            <p>Download polished, illustrated Aurelia PDFs for dining, private events and catering. Each document is built to match the restaurant website and can later be replaced with William&apos;s final approved content.</p>
           </div>
         </div>
       </section>
@@ -46,7 +46,7 @@ export default function MenuKitDownloads() {
               <p className="eyebrow">Aurelia resources</p>
               <h2>Choose a menu.</h2>
             </div>
-            <p>These are working demo PDFs, not placeholder buttons. Open them in a new tab or download them directly.</p>
+            <p>These are real downloadable menu PDFs with restaurant photography, editorial typography, warm Aurelia colors and subtle culinary illustrations.</p>
           </div>
 
           <div className="menukit-grid">
@@ -71,7 +71,7 @@ export default function MenuKitDownloads() {
 
           <div className="menukit-note glass-panel-light">
             <Sparkles size={20}/>
-            <div><strong>Demo-ready, client-ready structure.</strong><p>These PDFs use Aurelia demo content and pricing. Once the client supplies the real menus, the same downloadable experience can stay in place while the documents are replaced.</p></div>
+            <div><strong>Designed to stay consistent with the website.</strong><p>The PDFs are regenerated as part of local development and production builds, keeping the downloadable Menu Kit available on Vercel while the real client menu can be swapped in later.</p></div>
           </div>
         </div>
       </section>
