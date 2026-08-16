@@ -86,6 +86,14 @@ const explicitTags = {
   'Espresso Martini Flight': 'espressomartini,cocktail',
 }
 
+const fallbackPhotos = {
+  cocktail: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1200&q=84',
+  beer: 'https://images.unsplash.com/photo-1535958636474-b021ee887b13?auto=format&fit=crop&w=1200&q=84',
+  wine: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1200&q=84',
+  spirit: 'https://images.unsplash.com/photo-1527281400683-1aae777175f8?auto=format&fit=crop&w=1200&q=84',
+  coffee: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=84',
+}
+
 function stableLock(value) {
   let hash = 2166136261
   for (let index = 0; index < value.length; index += 1) {
@@ -112,9 +120,18 @@ function inferredTags(name) {
   return 'cocktail,drink'
 }
 
+function fallbackFor(name) {
+  const value = name.toLowerCase()
+  if (value.includes('beer') || value.includes('lager') || value.includes('ale') || value.includes('ipa') || value.includes('stout') || value.includes('pilsner') || value.includes('cider')) return fallbackPhotos.beer
+  if (value.includes('wine') || value.includes('champagne') || value.includes('prosecco') || value.includes('barolo') || value.includes('chablis') || value.includes('sancerre') || value.includes('riesling') || value.includes('malbec') || value.includes('syrah') || value.includes('rosé')) return fallbackPhotos.wine
+  if (value.includes('whisky') || value.includes('whiskey') || value.includes('bourbon') || value.includes('rum') || value.includes('tequila') || value.includes('mezcal') || value.includes('cognac') || value.includes('amaro') || value.includes('port')) return fallbackPhotos.spirit
+  if (value.includes('coffee') || value.includes('espresso') || value.includes('cappuccino') || value.includes('affogato')) return fallbackPhotos.coffee
+  return fallbackPhotos.cocktail
+}
+
 export function realDrinkPhoto(name) {
   const tags = explicitTags[name] || inferredTags(name)
-  return `https://loremflickr.com/960/720/${tags}/all?lock=${stableLock(name)}`
+  return `https://loremflickr.com/960/720/${tags}?lock=${stableLock(name)}`
 }
 
 export function enhanceDrinkPhotos(root = document) {
@@ -123,7 +140,11 @@ export function enhanceDrinkPhotos(root = document) {
     const name = String(image.getAttribute('alt') || '').trim()
     if (!name || image.dataset.realDrinkPhoto === name) return
     image.dataset.realDrinkPhoto = name
-    image.src = realDrinkPhoto(name)
     image.referrerPolicy = 'no-referrer'
+    image.onerror = () => {
+      image.onerror = null
+      image.src = fallbackFor(name)
+    }
+    image.src = realDrinkPhoto(name)
   })
 }
