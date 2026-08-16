@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import Layout from './Layout'
-import { About, Banquet, Booking, Catering, Contact, Gallery, Home, MenuKit, MenuPage, NotFound, VisitingHours } from './pages'
+import EnhancedMenuPage from './EnhancedMenuPage'
+import { About, Banquet, Booking, Catering, Contact, Gallery, Home, MenuKit, NotFound, VisitingHours } from './pages'
 
 export default function App() {
   return (
@@ -8,7 +9,7 @@ export default function App() {
       <Route element={<Layout/>}>
         <Route path="/" element={<Home/>}/>
         <Route path="/about" element={<About/>}/>
-        <Route path="/menu" element={<MenuPage/>}/>
+        <Route path="/menu" element={<EnhancedMenuPage/>}/>
         <Route path="/banquet" element={<Banquet/>}/>
         <Route path="/catering" element={<Catering/>}/>
         <Route path="/gallery" element={<Gallery/>}/>
