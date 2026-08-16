@@ -4,62 +4,52 @@
 Premium restaurant + bar website demo for MSPixelPulse.
 
 Repository: `MSPixelPulseAgency/demo-restaurant-bar`
+Live: https://aurelia-restaurant-bar.vercel.app
 
 ## Client brief
-The prospective client requested:
-1. Home
-2. About Us
-3. Menu
-4. Banquet Facility
-5. Gallery
-6. Catering
-7. Contact
-8. Visiting Hours
-9. Online Booking
-10. Menu Kit
-
-No shopping cart is required.
-
-## Reference direction
-The concept takes inspiration from two restaurant demos previously reviewed: one warmer/traditional and menu-forward, and one more restrained/editorial/upscale. Do not copy either. Combine cinematic imagery, strong reservations, menu presentation, restaurant story, hours, gallery, testimonials, and premium booking CTAs into a more modern custom experience.
+Requested pages: Home, About Us, Menu, Banquet Facility, Gallery, Catering, Contact, Visiting Hours, Online Booking and Menu Kit. Blog was also added during the demo build. No shopping cart is required.
 
 ## Current demo identity
-The fictional demo brand is **Aurelia Restaurant & Bar** with the line **Modern dining. Timeless hospitality.**
+**Aurelia Restaurant & Bar** — **Modern dining. Timeless hospitality.**
 
-All restaurant-specific content is replaceable demo content. Do not treat it as final client information.
+All restaurant-specific information remains replaceable demo content.
 
-## Information still needed from client
-- restaurant name
-- logo and branding
-- cuisine
-- address
-- phone
-- email
-- final menu and prices
-- opening hours
-- original photography
-- social profiles
-- banquet capacity / amenities
-- catering packages
-- reservation platform
-- exact meaning of “Menu Kit”
-- domain / hosting preference
+## Final visual direction
+- near-black / espresso foundation
+- warm ivory surfaces
+- bronze / champagne accents
+- restrained burgundy warmth
+- elegant serif display typography + clean sans-serif UI
+- cinematic food, bar, interior and events photography
+- subtle culinary illustrations
+- restrained liquid-glass overlays and navigation
+- polished rounded editorial cards and soft shadows
 
-## Product intent
-The first version should make the prospect immediately understand the quality and direction of the finished site. It should feel like a real restaurant rather than a generic business template.
+## Final responsive rules
+- Desktop header is one compact glass band with no extra separator or bottom dead space.
+- Mobile header uses Aurelia branding + circular hamburger and a single-column drawer.
+- Home mobile hero is centered, compact and intentionally spaced.
+- Home service strip keeps Dinner Nightly / Late-Night Bar / Private Events in one row.
+- Mobile Call / Directions / Reserve dock stays centered and safe-area aware.
+- Scroll-to-top sits above the dock.
+- Footer is centered on mobile; Explore navigation is compact and not enclosed in a giant card.
+- Images must preserve faces/key food subjects and decorative illustrations must never cover them.
+- Menu imagery is deterministic and relevant to each named item/category.
 
 ## UX priorities
 - reservation is always easy to find
 - menu is readable and image-supported, never ecommerce-oriented
 - restaurant + bar are both clearly represented
-- banquet and catering pages behave like lead-generation pages
+- banquet and catering pages generate leads
 - gallery is strongly visual
-- hours and location are highly scannable
-- mobile includes quick Call / Directions / Reserve actions
-- forms clearly state that the current demo does not submit to a live backend
+- hours and location are scannable
+- mobile quick actions remain reachable without obscuring content
 
 ## Menu Kit
-The client has not defined this requirement. Keep the dedicated page polished but generic. Do not invent downloads or complex functionality until clarified.
+Dedicated polished page with downloadable demo PDFs for dining, private events and catering. Replace with final approved resources when supplied.
+
+## Deployment
+GitHub `main` is connected to Vercel and deploys automatically. Vite production assets are hashed. Browser/site cache can be hard-refreshed by the viewer when needed; repository code cannot remotely clear a user's browser cache.
 
 ## Production follow-up
-After approval: replace demo identity/content, connect forms/reservation provider, connect map, add real social links, add final Restaurant schema, verify accessibility/SEO, deploy to production domain.
+After approval: replace demo identity/content, connect forms/reservation provider, connect map, add real social links, add final Restaurant schema, verify accessibility/SEO and move to the client production domain.
