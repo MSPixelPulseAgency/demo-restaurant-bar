@@ -48,7 +48,14 @@ function Header() {
         </button>
       </div>
 
-      <button className={`mobile-menu-backdrop ${open ? 'open' : ''}`} type="button" aria-label="Close navigation" tabIndex={open ? 0 : -1} onClick={() => setOpen(false)} />
+      {open && (
+        <button
+          className="mobile-menu-backdrop open"
+          type="button"
+          aria-label="Close navigation"
+          onClick={() => setOpen(false)}
+        />
+      )}
 
       <aside id="mobile-navigation" className={`mobile-panel ${open ? 'open' : ''}`} aria-hidden={!open}>
         <div className="mobile-panel-head">
