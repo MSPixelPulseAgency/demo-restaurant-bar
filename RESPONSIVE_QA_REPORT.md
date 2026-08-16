@@ -1,7 +1,7 @@
 # Aurelia Restaurant & Bar - Responsive / UX QA Report
 
 Date: 2026-08-16
-Scope: desktop, tablet and mobile source-level QA plus screenshot review of the live Vercel build.
+Scope: desktop, tablet and mobile source-level QA plus review of the supplied iPhone screenshots from the live Vercel build.
 
 ## Pages reviewed
 
@@ -19,109 +19,118 @@ Scope: desktop, tablet and mobile source-level QA plus screenshot review of the 
 - Contact `/contact`
 - Shared header, mobile navigation, footer and mobile quick actions
 
-## Findings and actions
+## High-priority issues found from the mobile screenshots
 
-### Shared navigation and layout
-Status: Good with targeted safeguards added.
+### 1. Mobile header was too tall and visually heavy
+Fix implemented:
+- Reduced the mobile header to a 70px production height.
+- Reduced brand mark and type scale while preserving the desktop logo.
+- Kept the hamburger aligned to the true right edge with a 44px touch target.
+- Desktop navigation remains untouched above the tablet breakpoint.
 
-- Desktop navigation remains unchanged.
-- Tablet switches to the hamburger before the desktop navigation becomes crowded.
-- Mobile menu already closes on route change and locks body scroll correctly.
-- Added final overflow protection, focus-visible states and safer footer breakpoints.
-- Footer now moves from four columns to two columns on tablet and one column on phones.
+### 2. Mobile navigation opened as an oversized full-screen experience
+Fix implemented:
+- Rebuilt the mobile navigation as a compact glass drawer instead of a full-screen page takeover.
+- Uses a two-column navigation grid, compact active states, one clear Reserve CTA, contact details and a dismissible backdrop.
+- Drawer closes on route change, outside click and Escape.
+- Body scroll remains locked only while the drawer is open.
 
-### Home
-Status: Good. No visual redesign made.
+### 3. Menu cards were rendering as broken side-by-side cards on phones
+Observed in screenshots:
+- Images occupied most of the card width while item names/descriptions were clipped off-screen.
+- Price pills floated over layouts that no longer had enough room.
 
-- Existing mobile hero rules already keep the content scannable.
-- Added a 420px fallback so the two hero CTAs become one full-width column on smaller phones.
-- Existing quick-action bar safe-area behavior retained.
-- Reduced-motion support retained and strengthened globally.
+Fix implemented:
+- Mobile menu cards now use a true one-column card: image first, full-width content below.
+- Images use a stable 16:10 ratio and `object-fit: cover`.
+- Copy, title, description and price remain fully visible at narrow widths.
+- Desktop multi-column grid remains unchanged.
 
-### About
-Status: Minor mobile risks found and fixed.
+### 4. Menu category navigation needed a cleaner mobile treatment
+Fix implemented:
+- Category navigation remains sticky under the header.
+- It is a single horizontal scroller on phones with no wrap-induced layout jumps.
+- Reduced category button size for better reach and more visible categories.
+- Removed the extra synthetic `Swipe` badge because it consumed usable navigation width.
 
-- The five-icon illustration rail could become crowded on narrow phones; it now becomes two columns with the last item centered.
-- Story collage desktop floating imagery could overlap excessively on narrow screens; mobile dimensions and positions were normalized.
-- Mood cards and value cards now collapse intentionally to one column on phones.
-- Final CTA becomes a stacked layout with a full-width action button.
+### 5. Decorative illustrations were overlapping people / faces
+Observed in screenshots:
+- Chef/utensil sketches could sit directly over portrait photography.
 
-### Menu
-Status: Navigation issue fixed in the prior pass; additional mobile discoverability added.
+Fix implemented:
+- Decorative chef/kitchen/cocktail pseudo-illustrations are disabled around portrait/collage sections on phones.
+- The dedicated restaurant icon rail remains because it is intentionally separated from photography.
+- Chef portraits now use controlled `object-position` so faces remain clear.
 
-- Desktop category navigation wraps cleanly.
-- Mobile category navigation stays horizontally scrollable and sticky.
-- Added a subtle `Swipe` affordance on phones so users understand more categories are available horizontally.
-- Category heading/summary is forced into a clean single-column mobile layout.
-- Existing extensive food/drink card layout remains unchanged.
+### 6. About collages were too layered for a narrow viewport
+Fix implemented:
+- Desktop collage remains layered.
+- Mobile switches to a clean primary portrait plus two supporting images in normal document flow.
+- Badge becomes part of the flow instead of floating over the chef image.
 
-### Banquet + Catering
-Status: Minor responsive safeguards added.
+### 7. Home metadata strip could clip or sit underneath fixed actions
+Fix implemented:
+- Mobile hero metadata now participates in normal layout instead of relying on absolute positioning.
+- Home CTAs stack to full width for cleaner tap targets.
+- Hero type is constrained to a readable mobile scale.
 
-- Event/resource grids now reduce to two columns on tablet and one on phones.
-- Wide photographic callouts get a safe mobile width instead of relying on desktop margin calculations.
-- No content or visual hierarchy changes were made.
+### 8. Home dining/bar split sections used oversized headings on phones
+Fix implemented:
+- Dual experience panels collapse to one column.
+- Heading size is reduced to an editorial mobile scale.
+- Bottom padding reserves room for the quick-action bar.
 
-### Gallery
-Status: Good with lightbox safeguards.
+### 9. Fixed Call / Directions / Reserve bar obscured too much page content
+Fix implemented:
+- Reduced it to a 68px compact glass bar.
+- Added safe-area-aware bottom spacing.
+- Added extra page/footer clearance so final content is never trapped behind it.
+- The bar becomes non-interactive/dim while the mobile menu is open.
 
-- Existing mobile gallery already collapses to one column.
-- Lightbox controls now maintain 48px touch targets.
-- Captions can scroll rather than pushing the image outside the viewport.
-- Existing horizontal mobile filters are retained.
+### 10. Menu Kit hero needed stronger mobile contrast and safer sizing
+Fix implemented:
+- Mobile hero uses a 500px minimum height, a stronger dark glass copy panel and explicit white heading text.
+- Background focal point shifts so food imagery remains visible without competing with copy.
+- Resource cards stack to one column.
 
-### Visiting Hours
-Status: Minor mobile readability issue fixed.
+### 11. Booking / Contact mobile layouts
+Fix implemented:
+- Forms and information columns collapse to one column.
+- Controls use 16px minimum text to prevent iOS Safari zoom.
+- Form cards get narrower mobile padding and safe width constraints.
 
-- Multi-column hours rows can become too compressed on small screens; they now stack into a clear one-column row on phones.
-- Desktop/tablet presentation remains unchanged.
+### 12. Gallery / Blog / Hours / Event pages
+Fix implemented:
+- Gallery and editorial grids collapse to one column on phones.
+- Gallery controls keep touch-safe sizing.
+- Blog cards use stable mobile image heights.
+- Hours rows stack rather than squeezing three columns.
+- Event/resource grids collapse to one column.
 
-### Booking + Contact
-Status: Mobile form UX improved.
+## Tablet safeguards
 
-- Form layouts are forced to one column at tablet/mobile widths.
-- Inputs, selects and textareas are constrained to the card width.
-- Mobile form controls use 16px text to avoid unwanted iOS Safari zoom.
-- Textareas get a comfortable minimum height and forms use tighter mobile padding.
+- Desktop navigation switches to hamburger at 1024px before links become crowded.
+- Two-column content is retained where space allows.
+- Desktop-specific masks, typography and compositions remain untouched above the mobile breakpoint.
 
-### Blog + Blog articles
-Status: Minor mobile UX issue fixed.
+## Production CSS layer
 
-- YouTube frames are explicitly locked to 16:9 to prevent layout jumps.
-- Long category filter sets now scroll horizontally on phones instead of wrapping into a tall block.
-- Related articles collapse to one column on phones.
-- Featured blog imagery gets a controlled mobile height.
+The final targeted mobile fixes live in:
 
-### Menu Kit
-Status: Good; redesigned PDFs integrated.
+`src/mobile-production-fixes.css`
 
-- Resource cards already stack correctly on mobile.
-- Download/Open actions get full touch-friendly height on phones.
-- Hero receives safe fixed-header top spacing.
-- All three downloadable menu PDFs were redesigned with imagery, restaurant illustration motifs and matching Aurelia typography/colors.
-- `scripts/generate-menu-pdfs.mjs` now regenerates the PDF set before `npm run dev` and `npm run build`, so Vercel production builds receive the same Menu Kit documents automatically.
-- The generator tolerates a temporary image-fetch failure and still creates valid menu PDFs rather than breaking the website build.
+This file is intentionally imported last so older experimental responsive rules cannot override the production mobile behavior.
 
-## PDF QA
-
-The final designed PDFs were rendered to PNG at 160 DPI for visual verification. Checked for:
-
-- clipped text
-- overlapping text
-- broken glyphs
-- image distortion
-- unreadable contrast
-- inconsistent margins
-- page-number/footer collisions
-
-Deliverables:
+## PDF / Menu Kit status
 
 - `aurelia-dining-menu.pdf` - 4 pages
 - `aurelia-private-events-menu.pdf` - 3 pages
 - `aurelia-catering-menu.pdf` - 3 pages
+- PDFs are regenerated by `scripts/generate-menu-pdfs.mjs` before both development and production builds.
 
-The build-time PDF generator was also syntax-checked and executed in a no-network environment. Its image-fetch fallback produced valid PDFs that successfully rendered, confirming that a transient remote-image problem will not block a Vercel build.
+## Verification
 
-## Verification note
-
-This was a conservative source-level responsive audit supported by the desktop/mobile screenshots shared during development. The available execution environment cannot directly run a full browser session against the user's localhost or the connected Aurelia Vercel project, so this report does not claim automated pixel-by-pixel browser testing at every breakpoint. Existing layouts that already had safe responsive behavior were intentionally left unchanged.
+- Latest GitHub production commit after the mobile QA pass: `93ac99d850541a55512a12baeeef12deaeb79783`.
+- Vercel status check for that commit returned `success`.
+- The supplied iPhone screenshots were used as the concrete visual evidence for this repair pass.
+- The available connector can validate build/deployment status but cannot emulate a real iPhone viewport pixel-for-pixel, so this report does not claim automated browser screenshot testing at every device size.
