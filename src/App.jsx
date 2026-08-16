@@ -2,8 +2,8 @@ import { Route, Routes } from 'react-router-dom'
 import Layout from './Layout'
 import EnhancedMenuPage from './EnhancedMenuPage'
 import EnhancedGalleryPage from './EnhancedGalleryPage'
+import EnhancedAboutPage from './EnhancedAboutPage'
 import {
-  PremiumAbout,
   PremiumBanquet,
   PremiumBooking,
   PremiumCatering,
@@ -19,7 +19,7 @@ export default function App() {
     <Routes>
       <Route element={<Layout/>}>
         <Route path="/" element={<PremiumHome/>}/>
-        <Route path="/about" element={<PremiumAbout/>}/>
+        <Route path="/about" element={<EnhancedAboutPage/>}/>
         <Route path="/menu" element={<EnhancedMenuPage/>}/>
         <Route path="/banquet" element={<PremiumBanquet/>}/>
         <Route path="/catering" element={<PremiumCatering/>}/>
