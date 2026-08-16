@@ -8,12 +8,6 @@ const offers = [
   { icon: Martini, eyebrow: 'Late night', title: 'Golden Hour at the Bar', text: 'Signature cocktails and bar bites from 9 PM until close.', note: 'Demo promotion' },
 ]
 
-const drinks = [
-  ['The Aurelia Spritz', 'Bitter orange · sparkling wine · citrus', images.cocktailClose],
-  ['Velvet Night', 'Blackberry · rosemary · gin · tonic', images.barNight],
-  ['Reserve Selection', 'A rotating glass pour from the cellar', images.winePour],
-]
-
 const barMoments = [
   [images.cocktailClose, 'Signature cocktails'],
   [images.barNight, 'The bar after dark'],
@@ -51,15 +45,16 @@ export default function HomeRoyalExtras() {
         </div>
       </section>
 
-      <section className="royal-bar-section">
+      <section className="royal-bar-section royal-bar-clean">
         <div className="royal-bar-video" aria-hidden="true">
           <video autoPlay muted loop playsInline preload="metadata" poster={images.bar}>
             <source src="https://videos.pexels.com/video-files/5495781/5495781-hd_1920_1080_25fps.mp4" type="video/mp4" />
           </video>
           <div className="royal-bar-video-shade" />
         </div>
-        <div className="shell royal-bar-shell">
-          <div className="royal-bar-copy">
+
+        <div className="shell royal-bar-clean-grid">
+          <div className="royal-bar-copy royal-bar-copy-clean">
             <div className="royal-bar-chip"><Sparkles size={14}/> After dinner, stay awhile</div>
             <p className="eyebrow light">Aurelia Bar</p>
             <h2>Dark glass, warm light, unforgettable pours.</h2>
@@ -67,15 +62,16 @@ export default function HomeRoyalExtras() {
             <div className="royal-bar-meta"><span><Clock3 size={16}/> Late-night service</span><span><Wine size={16}/> Curated cellar</span><span><Martini size={16}/> Signature cocktails</span></div>
             <Link to="/menu" className="button button-gold">Explore Cocktails</Link>
           </div>
-          <div className="royal-drink-stack">
-            {drinks.map(([name, detail, image], index) => (
-              <article className={`royal-drink-card royal-drink-${index + 1} interactive-card`} tabIndex="0" key={name}>
-                <img src={image} alt={name} loading="lazy"/>
-                <div><span>0{index + 1}</span><h3>{name}</h3><p>{detail}</p></div>
-              </article>
-            ))}
-          </div>
+
+          <figure className="royal-bar-feature-media">
+            <img src={images.barNight} alt="Aurelia bar at night" loading="lazy" decoding="async" />
+            <figcaption className="royal-bar-feature-caption">
+              <span>After dark</span>
+              <strong>The room changes with the night.</strong>
+            </figcaption>
+          </figure>
         </div>
+
         <div className="shell royal-bar-photo-strip" aria-label="Aurelia bar moments">
           {barMoments.map(([image, label]) => (
             <figure className="royal-bar-photo interactive-card" key={label}>
