@@ -79,3 +79,12 @@ Current release rule: preserve the finished responsive behavior. Make targeted f
 This is a demo website. Aurelia branding, menu/pricing, contact information, hours, testimonials and event details are replaceable placeholders until final client content is supplied.
 
 Created by MSPixelPulse.
+
+## Website and demo management
+
+- **Live Website:** [https://restaurant.mspixelpulse.com](https://restaurant.mspixelpulse.com)
+- **Original Vercel URL (fallback):** [https://aurelia-restaurant-bar.vercel.app](https://aurelia-restaurant-bar.vercel.app)
+- **MSPixelPulse Projects:** [MSPixelPulse Projects](https://mspixelpulse.com/projects)
+- **Aurelion Demo Library:** [Private Demo Management — Owner Access Required](https://mahakpatel.com/play/ai?view=demo-library)
+
+The category subdomain is the primary public demo link; the original Vercel address stays available as a fallback. The Aurelion link is an owner-only management interface and does not grant access.
