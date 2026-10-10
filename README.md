@@ -79,3 +79,11 @@ Current release rule: preserve the finished responsive behavior. Make targeted f
 This is a demo website. Aurelia branding, menu/pricing, contact information, hours, testimonials and event details are replaceable placeholders until final client content is supplied.
 
 Created by MSPixelPulse.
+
+## Website and demo management
+
+- **Live Website:** [https://restaurant.mspixelpulse.com](https://restaurant.mspixelpulse.com)
+- **MSPixelPulse Projects:** [MSPixelPulse Projects](https://mspixelpulse.com/projects)
+- **Aurelion Demo Library:** [Private Demo Management — Owner Access Required](https://mahakpatel.com/play/ai?view=demo-library)
+
+Category subdomains are not published here until their HTTPS website is verified. The Aurelion link is an owner-only management interface and does not grant access.
