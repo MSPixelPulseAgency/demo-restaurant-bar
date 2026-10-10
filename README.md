@@ -83,7 +83,8 @@ Created by MSPixelPulse.
 ## Website and demo management
 
 - **Live Website:** [https://restaurant.mspixelpulse.com](https://restaurant.mspixelpulse.com)
+- **Original Vercel URL (fallback):** [https://aurelia-restaurant-bar.vercel.app](https://aurelia-restaurant-bar.vercel.app)
 - **MSPixelPulse Projects:** [MSPixelPulse Projects](https://mspixelpulse.com/projects)
 - **Aurelion Demo Library:** [Private Demo Management — Owner Access Required](https://mahakpatel.com/play/ai?view=demo-library)
 
-Category subdomains are not published here until their HTTPS website is verified. The Aurelion link is an owner-only management interface and does not grant access.
+The category subdomain is the primary public demo link; the original Vercel address stays available as a fallback. The Aurelion link is an owner-only management interface and does not grant access.
