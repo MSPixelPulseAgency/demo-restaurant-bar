@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import Layout from './components/Layout'
+import RouteMetadata from './components/RouteMetadata'
 import EnhancedMenuPage from './pages/EnhancedMenuPage'
 import EnhancedGalleryPage from './pages/EnhancedGalleryPage'
 import EnhancedAboutPage from './pages/EnhancedAboutPage'
@@ -17,6 +18,8 @@ import { NotFound } from './pages/pages'
 
 export default function App() {
   return (
+    <>
+    <RouteMetadata />
     <Routes>
       <Route element={<Layout/>}>
         <Route path="/" element={<PremiumHome/>}/>
@@ -34,5 +37,6 @@ export default function App() {
         <Route path="*" element={<NotFound/>}/>
       </Route>
     </Routes>
+    </>
   )
 }
