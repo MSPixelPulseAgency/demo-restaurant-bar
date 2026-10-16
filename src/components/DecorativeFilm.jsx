@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { Pause, Play } from 'lucide-react'
 
 // Background media is optional: local posters remain visible for failed media,
@@ -10,8 +11,10 @@ export default function DecorativeFilm({ src, poster, label }) {
   const [allowMotion, setAllowMotion] = useState(false)
   const [paused, setPaused] = useState(false)
   const [failed, setFailed] = useState(false)
+  const [controlHost, setControlHost] = useState(null)
 
   useEffect(() => {
+    setControlHost(container.current.closest('section'))
     const preference = window.matchMedia('(prefers-reduced-motion: reduce)')
     const update = () => setAllowMotion(!preference.matches && !navigator.connection?.saveData)
     update()
@@ -29,7 +32,8 @@ export default function DecorativeFilm({ src, poster, label }) {
   }, [visible, allowMotion, paused, failed])
 
   return (
-    <div className="decorative-film" ref={container}>
+    <>
+      <div className="decorative-film" ref={container}>
       <img className="decorative-film-poster" src={poster} alt="" loading="lazy" decoding="async" aria-hidden="true" />
       {allowMotion && !failed && (
         <video ref={video} muted loop playsInline preload="none" poster={poster} aria-hidden="true" onError={() => setFailed(true)}>
@@ -37,9 +41,10 @@ export default function DecorativeFilm({ src, poster, label }) {
           <source src={src} type="video/mp4" />
         </video>
       )}
-      {allowMotion && !failed && <button type="button" className="decorative-film-control" onClick={() => setPaused((value) => !value)} aria-label={`${paused ? 'Play' : 'Pause'} ${label} background video`}>
+      </div>
+      {allowMotion && !failed && controlHost && createPortal(<button type="button" className="decorative-film-control" onClick={() => setPaused((value) => !value)} aria-label={`${paused ? 'Play' : 'Pause'} ${label} background video`}>
         {paused ? <Play size={15} aria-hidden="true" /> : <Pause size={15} aria-hidden="true" />}
-      </button>}
-    </div>
+      </button>, controlHost)}
+    </>
   )
 }
