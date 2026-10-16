@@ -1,3 +1,4 @@
+import DecorativeFilm from './DecorativeFilm'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, BadgePercent, CalendarDays, Clock3, Crown, Martini, Sparkles, Wine } from 'lucide-react'
@@ -58,10 +59,8 @@ export default function HomeRoyalExtras() {
       </section>
 
       <section className="royal-bar-section royal-bar-single">
-        <div className="royal-bar-video" aria-hidden="true">
-          <video autoPlay muted loop playsInline preload="metadata" poster={images.bar}>
-            <source src="https://videos.pexels.com/video-files/5495781/5495781-hd_1920_1080_25fps.mp4" type="video/mp4" />
-          </video>
+        <div className="royal-bar-video">
+          <DecorativeFilm src="/media/aurelia-bar.mp4" poster="/media/aurelia-bar-poster.webp" label="bar" />
           <div className="royal-bar-video-shade" />
         </div>
 
