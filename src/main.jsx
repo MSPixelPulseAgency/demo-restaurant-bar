@@ -45,6 +45,7 @@ import './styles/home-hero-header-final.css'
 import './styles/home-dish-border-cleanup.css'
 import './styles/home-hero-minimal-final.css'
 import './styles/home-hero-layout-final.css'
+import './styles/decorative-film.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

@@ -1,0 +1,11 @@
+.decorative-film,.decorative-film-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.decorative-film video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.decorative-film-control{position:absolute;right:18px;bottom:18px;z-index:5;display:grid;place-items:center;width:44px;height:44px;border:1px solid #fff6;border-radius:50%;color:#fff;background:#120d0bd9;cursor:pointer;pointer-events:auto}
+.decorative-film-control:hover{background:#2b201bef}
+.decorative-film-control:focus-visible{outline:3px solid #efcf9a;outline-offset:3px}
+/* Put the optional pause controls above cinematic shading without changing its crop. */
+.cinematic-film-media,.royal-bar-video{pointer-events:none;z-index:0}
+.cinematic-film-media .decorative-film,.royal-bar-video .decorative-film{pointer-events:none}
+.cinematic-film-media .decorative-film-control,.royal-bar-video .decorative-film-control{pointer-events:auto}
+.cinematic-film-shade,.royal-bar-video-shade{pointer-events:none}
+@media(prefers-reduced-motion:reduce){.cinematic-film-media{background:none}.decorative-film video{display:none}}

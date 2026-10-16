@@ -1,8 +1,9 @@
+import DecorativeFilm from './DecorativeFilm'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Play, Sparkles } from 'lucide-react'
 
-const filmSource = 'https://videos.pexels.com/video-files/5705978/5705978-hd_1920_1080_25fps.mp4'
-const filmPoster = 'https://images.unsplash.com/photo-1516211697506-8360dbcfe9a4?auto=format&fit=crop&w=2000&q=86'
+const filmSource = '/media/aurelia-kitchen.mp4'
+const filmPoster = '/media/aurelia-kitchen-poster.webp'
 
 const cocktails = [
   { name: 'Golden Hour', note: 'Bourbon · apricot · citrus', image: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=1200&q=88' },
@@ -20,10 +21,8 @@ export default function CinematicFilm() {
   return (
     <>
       <section className="cinematic-film cinematic-film-full" aria-labelledby="cinematic-film-title">
-        <div className="cinematic-film-media" aria-hidden="true">
-          <video autoPlay muted loop playsInline preload="metadata" poster={filmPoster}>
-            <source src={filmSource} type="video/mp4" />
-          </video>
+        <div className="cinematic-film-media">
+          <DecorativeFilm src={filmSource} poster={filmPoster} label="kitchen" />
           <div className="cinematic-film-shade" />
           <div className="cinematic-glow cinematic-glow-one" />
           <div className="cinematic-glow cinematic-glow-two" />
