@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "node scripts/generate-menu-pdfs.mjs && vite",
-    "build": "node scripts/generate-menu-pdfs.mjs && vite build",
+    "build": "node scripts/generate-menu-pdfs.mjs && node scripts/generate-sitemap.mjs && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
