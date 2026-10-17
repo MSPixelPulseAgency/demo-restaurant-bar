@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { DEMO_NOTE, InquiryFields, useInquiryForm } from '../lib/inquiryForm'
 import {
   ArrowRight,
   CalendarDays,
@@ -286,16 +287,17 @@ export function PremiumVisitingHours() {
 
 export function PremiumBooking() {
   usePageMeta('Online Booking', 'Request a table at Aurelia by selecting your preferred date, time, guest count and contact information.')
-  const [sent, setSent] = useState(false)
+  const booking = useInquiryForm('booking', (v) => ({ name: v('name'), email: v('email'), phone: v('phone'), service: 'Table reservation request', message: v('notes') || 'Table reservation request (demo).', details: { guests: v('guests'), date: v('date'), time: v('time') } }))
   return (
     <>
       <section className="premium-booking-hero" style={{ '--booking-image': `url(${images.table})` }}><div className="premium-booking-shade"/><div className="shell premium-booking-layout">
         <div className="premium-booking-intro glass-dark"><p className="eyebrow light">Reservations</p><h1>Your table awaits.</h1><p>Choose a preferred date, time and party size. The production site can later connect to the restaurant's booking platform.</p><div className="premium-booking-points"><span><CalendarDays/> Choose your date</span><span><UsersRound/> Tell us your party size</span><span><Wine/> Add celebration or dietary notes</span></div></div>
-        <form className="premium-booking-form glass-light" onSubmit={(event) => { event.preventDefault(); setSent(true) }}>
-          {sent ? <div className="premium-success"><Check/><p className="eyebrow">Request received</p><h2>We saved your preferred table.</h2><p>This is a demo confirmation. No live restaurant reservation was created.</p><button type="button" className="button button-dark" onClick={() => setSent(false)}>Make another request</button></div> : <>
+        <form className="premium-booking-form glass-light" onSubmit={booking.onSubmit}>
+          {booking.sent ? <div className="premium-success" role="status"><Check/><p className="eyebrow">Request received</p><h2>Thanks — your request is in.</h2><p>Your demo reservation request was received by MSPixelPulse and someone will reply by email. No table or reservation has been created or held.</p><button type="button" className="button button-dark" onClick={booking.reset}>Make another request</button></div> : <>
             <div className="premium-form-head"><span>01</span><div><p className="eyebrow">Your details</p><h2>Who are we welcoming?</h2></div></div>
             <div className="premium-form-grid"><label>Full name<input required name="name" autoComplete="name"/></label><label>Email<input required type="email" name="email" autoComplete="email"/></label><label>Phone<input required type="tel" name="phone" autoComplete="tel"/></label><label>Guests<select name="guests" defaultValue="2"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7+</option></select></label><label>Date<input required type="date" name="date"/></label><label>Time<select required name="time" defaultValue=""><option value="" disabled>Select a time</option><option>5:00 PM</option><option>5:30 PM</option><option>6:00 PM</option><option>6:30 PM</option><option>7:00 PM</option><option>7:30 PM</option><option>8:00 PM</option><option>8:30 PM</option><option>9:00 PM</option></select></label><label className="premium-form-full">Special requests<textarea rows="4" name="notes" placeholder="Allergies, accessibility needs, celebration details..."/></label></div>
-            <button className="button button-gold premium-submit" type="submit">Request Reservation</button><p className="premium-demo-note">Demo only — no live booking is submitted.</p>
+            <InquiryFields error={booking.error}/>
+            <button className="button button-gold premium-submit" type="submit" disabled={booking.sending}>{booking.sending ? 'Sending…' : 'Request Reservation'}</button><p className="premium-demo-note">{DEMO_NOTE}</p>
           </>}
         </form>
       </div></section>
@@ -323,7 +325,7 @@ export function PremiumMenuKit() {
 
 export function PremiumContact() {
   usePageMeta('Contact', 'Contact Aurelia Restaurant & Bar for general, banquet, catering and reservation inquiries.')
-  const [sent, setSent] = useState(false)
+  const contact = useInquiryForm('contact', (v) => ({ name: v('name'), email: v('email'), service: v('type'), message: v('message') }))
   return (
     <>
       <Hero eyebrow="Get in touch" title="We’d love to hear from you." text="Questions, events, catering or general inquiries — start here." image={images.interior} compact />
@@ -332,7 +334,7 @@ export function PremiumContact() {
           <div className="premium-contact-cards"><a className="glass-light" href={`tel:${site.phone.replace(/[^0-9+]/g, '')}`}><Phone/><span><small>Call us</small><strong>{site.phone}</strong></span></a><a className="glass-light" href={`mailto:${site.email}`}><Mail/><span><small>Email</small><strong>{site.email}</strong></span></a><div className="glass-light"><MapPin/><span><small>Visit</small><strong>{site.address}</strong></span></div></div>
           <div className="premium-contact-image"><Picture src={images.bar} alt="Aurelia bar"/><div className="glass-dark"><p className="eyebrow light">Tonight at Aurelia</p><h3>Dinner, drinks and a room worth staying in.</h3></div></div>
         </div>
-        <form className="premium-contact-form glass-light" onSubmit={(event) => { event.preventDefault(); setSent(true) }}>{sent ? <div className="premium-success"><Check/><p className="eyebrow">Message captured</p><h2>Thanks for reaching out.</h2><p>This is a demo confirmation. Connect the production form endpoint before launch.</p></div> : <><p className="eyebrow">Send an inquiry</p><h2>Tell us how we can help.</h2><label>Name<input required name="name" autoComplete="name"/></label><label>Email<input required type="email" name="email" autoComplete="email"/></label><label>Inquiry type<select name="type"><option>General inquiry</option><option>Banquet / private event</option><option>Catering</option><option>Reservation question</option></select></label><label>Message<textarea required rows="6" name="message"/></label><button type="submit" className="button button-dark">Send Inquiry</button></>}</form>
+        <form className="premium-contact-form glass-light" onSubmit={contact.onSubmit}>{contact.sent ? <div className="premium-success" role="status"><Check/><p className="eyebrow">Message received</p><h2>Thanks for reaching out.</h2><p>Your demo inquiry was received by MSPixelPulse and someone will reply by email.</p></div> : <><p className="eyebrow">Send an inquiry</p><h2>Tell us how we can help.</h2><label>Name<input required name="name" autoComplete="name"/></label><label>Email<input required type="email" name="email" autoComplete="email"/></label><label>Inquiry type<select name="type"><option>General inquiry</option><option>Banquet / private event</option><option>Catering</option><option>Reservation question</option></select></label><label>Message<textarea required rows="6" name="message"/></label><InquiryFields error={contact.error}/><button type="submit" className="button button-dark" disabled={contact.sending}>{contact.sending ? 'Sending…' : 'Send Inquiry'}</button><p className="premium-demo-note">{DEMO_NOTE}</p></>}</form>
       </div></section>
     </>
   )
